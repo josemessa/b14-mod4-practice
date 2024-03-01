@@ -1,3 +1,5 @@
+import{filterMoviesData} from "./mappers"
+
 const config = {
   apiKey: "15d2ea6d0dc1d476efbca3eba2b9bbfb",
   langIso: "es-ES",
@@ -22,20 +24,5 @@ export async function getMovieListData(movieListType, page = 1) {
   return filterMoviesData(data?.results ?? []);
 }
 
-function filterMoviesData(movies){
-  return movies.map( movie => {
-    const { id, title , overview, poster_path, release_date, vote_average}= movie 
-    return {
-      id,
-      title,
-      description : overview,
-      cover: poster_path,
-      year: release_date.split("-").shift(),
-      rating: vote_average,
-    }
 
-    
-  })
-
-}
 
