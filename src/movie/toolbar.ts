@@ -15,22 +15,18 @@ export function addToolbar(){
           ><img src="list-icon.svg" alt=""></a>
       </li>
     </ul>
-    <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Now Playing</a></li>
-        <li><a class="dropdown-item" href="#">Most Popular</a></li>
-        <li><a class="dropdown-item" href="#">Top rated</a></li>
-        <li><a class="dropdown-item" href="#">Upcoming</a></li>
-      </ul>
     </div>
+    <div>
+    <select
+    id="movie-type-select"
+    class="form-select w-25"
+    aria-label="Movie list type"
+  >
+    <option selected value="now_playing">En cartelera</option>
+    <option value="popular">Popular</option>
+    <option value="top_rated">Mejor valoradas</option>
+    <option value="upcoming">Próximamente</option>
+  </select>
     </div>`
 
   appElement.appendChild(elementContent)
