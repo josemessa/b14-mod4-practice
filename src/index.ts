@@ -7,7 +7,7 @@ import { getMovieListData } from "./ts/api.js";
 import { movieListType } from "./ts/api.js";
 import { addToolbar } from "./movie/toolbar.ts";
 import{ getElementByIdFrom } from "./ts/utils.ts"
-import{ addGridLayoutClickListener, addListLayoutClickListener } from "./ts/events.ts" 
+import{ addGridLayoutClickListener, addListLayoutClickListener, addSelectChangeListener } from "./ts/events.ts" 
 
 
 getMovieListData(movieListType.popular, 1)
@@ -22,3 +22,4 @@ getMovieListData(movieListType.popular, 1)
 addToolbar();
 addGridLayoutClickListener()
 addListLayoutClickListener()
+addSelectChangeListener()
