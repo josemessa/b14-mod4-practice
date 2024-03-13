@@ -1,23 +1,23 @@
 // control de eventos
 export function addGridLayoutClickListener(){
-    const elementSvg= document.getElementById('grid-display')
-    elementSvg?.addEventListener("click", function(){
+    const elementGrid= document.getElementById('grid-display')
+    elementGrid?.addEventListener("click", function(){
         console.log('funciona event grid')} )
 }
 
 export function addListLayoutClickListener(){
-    const elementSvg= document.getElementById('list-display')
-    elementSvg?.addEventListener("click", function(){
+    const elementList= document.getElementById('list-display')
+    elementList?.addEventListener("click", function(){
         console.log('funciona event list')
     })
 }
 
 export function addSelectChangeListener() {
-    const element = document.getElementById('movie-type-select');
+    const elementSelect = document.getElementById('movie-type-select');
     
-    if (element) {
-        element.addEventListener("change", function() {
-            const optionSelected = element.value;
+    if (elementSelect) {
+        elementSelect.addEventListener("change", function() {
+            const optionSelected = elementSelect.value;
             console.log(optionSelected);
         });
     }
