@@ -6,10 +6,12 @@ import "./ts/api.ts";
 import { getMovieListData, searchMovie } from "./ts/api.js";
 import { movieListType } from "./ts/api-config.ts";
 import { addToolbar } from "./movie/toolbar.ts";
-import{ getElementByIdFrom, showContent } from "./utils/utils.ts"
-import{ addGridLayoutClickListener, addListLayoutClickListener, addSelectChangeListener } from "./ts/events.ts" 
-
-
+import { getElementByIdFrom, showContent } from "./utils/utils.ts";
+import {
+  addGridLayoutClickListener,
+  addListLayoutClickListener,
+  addSelectChangeListener,
+} from "./ts/events.ts";
 // getMovieListData(movieListType.popular, 1)
 //   .then((movies) => {
 //     showContent(movies);
@@ -23,6 +25,7 @@ searchMovie('loco')
 .catch(error=> {console.error(error.message);})
 
 addToolbar();
-addGridLayoutClickListener()
-addListLayoutClickListener()
-addSelectChangeListener()
+
+addGridLayoutClickListener();
+addListLayoutClickListener();
+addSelectChangeListener();
