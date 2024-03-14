@@ -1,0 +1,7 @@
+1-estructura de archivos ok
+
+2-funcion que cree las url para las llamadas a la api (categorias y search) ok
+
+3-funcion "fetch" que llame a la api y devuelva el JSON
+
+4- darle formato a los datos devueltos por la api 
