@@ -1,5 +1,3 @@
-
-
 export function addToolbar(){
     const appElement : any  = document.getElementById('app')
     const elementContent= document.createElement('div')
@@ -21,7 +19,6 @@ export function addToolbar(){
     </div>`
 
   appElement.appendChild(elementContent)
-
 }
 
 

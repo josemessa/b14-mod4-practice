@@ -1,4 +1,4 @@
-export function getElementByIdFrom(
+export function getElementByIdFrom (
   id: string,
   functionName: string
 ): HTMLElement {
@@ -14,8 +14,10 @@ export function getElementByIdFrom(
 
 export function showContent(content: unknown): void {
   const appElement = document.getElementById("app");
-  if (appElement !== null) {
-    appElement.innerHTML += `<pre>${JSON.stringify(
+  let newDiv= document.createElement("div") 
+  appElement?.appendChild(newDiv)
+  if (newDiv !== null) {
+    newDiv.innerHTML += `<pre>${JSON.stringify(
       content,
       undefined,
       2
@@ -24,14 +26,3 @@ export function showContent(content: unknown): void {
 }
 
 
-// funcion para hacer el fetch de las url y traer datos
-export async function fetchData( url, functionName){
-  const response = await fetch(url);
-  const data = await response.json();
-
-  if (data?.success === false) {
-    throw new Error(`error${functionName}): ${data.status_message} `);
-  }
-  return data?.results ?? [];
-
-}

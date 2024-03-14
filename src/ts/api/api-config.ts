@@ -7,10 +7,5 @@ export const apiConfig = {
   posterBaseUrl: "http://image.tmdb.org/t/p/w500//"
 };
 
-export const movieListType = {
-  nowPlaying: "now_playing",
-  popular: "popular",
-  topRated: "top_rated",
-  upcoming: "upcoming",
-};
+
 
