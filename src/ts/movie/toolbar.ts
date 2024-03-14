@@ -11,11 +11,11 @@ export function addToolbar(){
     class="form-select w-100"
     aria-label="Movie list type"
   >
-    <option selected value="now_playing">En cartelera</option>
-    <option value="popular">Popular</option>
-    <option value="top_rated">Mejor valoradas</option>
-    <option value="upcoming">Próximamente</option>
-  </select>
+  //   <option value="now_playing">En cartelera</option>
+  //   <option value="popular">Popular</option>
+  //   <option value="top_rated">Mejor valoradas</option>
+  //   <option value="upcoming">Próximamente</option>
+  // </select>
     </div>`
 
   appElement.appendChild(elementContent)

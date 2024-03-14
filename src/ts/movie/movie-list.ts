@@ -1,4 +1,5 @@
 import { getMovieListData } from "../api/api";
+import { apiConfig } from "../api/api-config";
 import { addGridLayoutClickListener, addListLayoutClickListener, addSelectChangeListener } from "../events/events";
 import { filterMoviesData } from "../mappers/mappers";
 import { MovieListType } from "../models";
@@ -19,11 +20,27 @@ export async function addMovieListElements()  {
     addSelectChangeListener();
     
     // Data
-    const moviesData = await getMovieListData(currentMovieListType);
-    showContent(filterMoviesData(moviesData));
+    let moviesData = await getMovieListData(currentMovieListType);
+    moviesData= filterMoviesData(moviesData);
 
     // ForEach con los movie data
     // crear un element y añadirlo a appElement
+    const container= document.createElement("div")
+    container.classList.add("container")
+
+    const row= document.createElement("div")
+    row.classList.add("row")
+
+    appElement.appendChild(container)
+    container.appendChild(row)
+    
+    moviesData.forEach( movie =>{
+
+       const card= document.createElement("div")
+       const column= document.createElement("div")
+       column.classList.add("col-lg-3 col-md-4 col-sm-6")     
+       
+    })
 }
 
 export function setCurrentMovieListType(movieListType: MovieListType) {
@@ -31,13 +48,7 @@ export function setCurrentMovieListType(movieListType: MovieListType) {
     addMovieListElements();
 }
 
-// export function cardCreator() {
-//   const element = document.getElementById("app");
-//   let cardDiv = document.createElement("div");
-//   cardDiv.innerHTML;
-//   // element?.appendChild(cardDiv)
-//   // cardDiv.classList.add("card")
-// }
+
 
 /**
  * container
