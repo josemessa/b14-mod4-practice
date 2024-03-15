@@ -4,3 +4,8 @@ export enum MovieListType {
     TopRated = "top_rated",
     Upcoming = "upcoming",
   };
+
+  export enum MovieListLayout{
+    Grid ="grid",
+    List= "list",
+  }

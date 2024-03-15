@@ -1,10 +1,13 @@
 // funciones que trasnsforman los datos
 
-export function filterMoviesData(movies) {
+import { MovieList } from "../models/movie-list.interface";
+
+export function filterMoviesData(movies): MovieList[] {
   return movies.map((movie) => {
-    const {  title, overview, poster_path, release_date, vote_average } =
+    const { id, title, overview, poster_path, release_date, vote_average } =
       movie;
     return {
+      id,
       cover: poster_path,
       title,
       rating: vote_average,
