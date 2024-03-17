@@ -21,5 +21,14 @@ export function addToolbar(){
   appElement.appendChild(elementContent)
 }
 
+export function addBackToolbar(){
+  const appElement : any  = document.getElementById('app')
+  const elementContent= document.createElement('div')
 
+  elementContent.innerHTML=`<div class="container d-flex align-items-center">
+  <div><button class=" border border-0 bg-transparent " id="back-button"><img src="back.svg" alt="">
+  </button></div>`
+
+appElement.appendChild(elementContent)
+}
 

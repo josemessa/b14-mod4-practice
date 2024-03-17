@@ -10,7 +10,7 @@ import { filterMoviesData } from "../mappers/mappers";
 import { MovieListLayout, MovieListType } from "../models";
 import { MovieList } from "../models/movie-list.interface";
 import { getElementByIdFrom, showContent } from "../utils/utils";
-import { addToolbar } from "./toolbar";
+import { addToolbar } from "./toolbars";
 
 let currentMovieListType = MovieListType.NowPlaying;
 let currentMovieListLayout = MovieListLayout.Grid;

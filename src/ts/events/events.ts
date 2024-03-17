@@ -51,9 +51,9 @@ export function addCoverEventListener() {
 //  1 añadir listener a la portada
 
 // añadir id al container para pillarlo en el event / ok!
-// añadir evento click en portada de la pelicula usando el id de container
-// a la imagen añadir id "movie-id"
-// comprobar que  el elemento clickeado contiene el elemento
+// añadir evento click en portada de la pelicula usando el id de container / ok
+// a la imagen añadir id "movie-id" /ok
+// comprobar que  el elemento clickeado contiene id y la clase /ok
 // si es asi llamar a la funcion que monte el nuevo bloque y lo incluya en el dom
 
 // 2- montar la llamada a la api de detalles
