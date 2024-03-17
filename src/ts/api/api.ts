@@ -10,7 +10,8 @@ export async function getMovieListData(movieListType: MovieListType, page = 1) {
 // funcion para traer peliculas por busquda
 export async function searchMovie(query: string) {
   const movieSearchUrl = getMovieSearchUrl(query);
-  return fetchMovieListData(movieSearchUrl, "searchMovie");
+  return fetchMovieListData(movieSearchUrl, "searchMovie")
+  console.log(movieSearchUrl);
 }
 
 // funcion para hacer el fetch de las url y traer datos

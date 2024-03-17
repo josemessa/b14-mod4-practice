@@ -1,6 +1,7 @@
 import { getMovieListData } from "../api/api";
 import { apiConfig } from "../api/api-config";
 import {
+  addCoverEventListener,
   addGridLayoutClickListener,
   addListLayoutClickListener,
   addSelectChangeListener,
@@ -43,6 +44,7 @@ export function addMovieGridElements() {
   // ForEach con los movie data
   // crear un element y añadirlo a appElement
   const container = document.createElement("div");
+  container.setAttribute("id", "container");
   container.classList.add("container");
 
   const row = document.createElement("div");
@@ -56,10 +58,11 @@ export function addMovieGridElements() {
     card.classList.add("card");
     const column = document.createElement("div");
     column.classList.add("col-lg-3", "col-md-4", "col-sm-6");
-    
+
     // card elements
     const cover = document.createElement("img");
     cover.classList.add("cover");
+    cover.setAttribute("id", "movie-id");
     cover.src = `${apiConfig.posterBaseUrl + movie.cover}`;
     cover.setAttribute("movie-id", `${movie.id}`);
 
@@ -87,6 +90,7 @@ export function addMovieGridElements() {
     card.appendChild(year);
     card.appendChild(rating);
     card.appendChild(description);
+    addCoverEventListener()
   });
 }
 
@@ -96,6 +100,7 @@ export async function addMovieListElements() {
   // ForEach con los movie data
   // crear un element y añadirlo a appElement
   const container = document.createElement("div");
+  container.setAttribute("id", "container");
   container.classList.add("container");
 
   const row = document.createElement("div");
@@ -109,7 +114,7 @@ export async function addMovieListElements() {
     card.classList.add("d-flex");
     const column = document.createElement("div");
     column.classList.add("d-flex", "flex-column");
-   
+
     // card elements
 
     const coverContainer = document.createElement("div");
@@ -149,6 +154,7 @@ export async function addMovieListElements() {
     dataContainer.appendChild(year);
     dataContainer.appendChild(rating);
     dataContainer.appendChild(description);
+    addCoverEventListener()
   });
 }
 
