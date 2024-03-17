@@ -6,7 +6,9 @@ import {
   setCurrentMovieListLayout,
   setCurrentMovieListType,
 } from "../movie/movie-list";
+import { showDetail } from "../movie/moviedetail";
 
+export const movieID=""
 // control de eventos
 export function addGridLayoutClickListener() {
   const elementGrid = document.getElementById("grid-display");
@@ -44,6 +46,7 @@ export function addCoverEventListener() {
       const movieID = target.getAttribute("movie-id");
       
       console.log(movieID);
+     
     }
   });
 }

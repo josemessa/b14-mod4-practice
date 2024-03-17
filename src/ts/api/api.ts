@@ -1,11 +1,7 @@
+import { movieID } from "../events/events";
 import { MovieListType } from "../models";
 import { apiConfig } from "./api-config";
 
-// funcion para hacer trert peliculas por tipo
-export async function getMovieListData(movieListType: MovieListType, page = 1) {
-  const movieListUrl = getMovieListUrl(movieListType, page);
-  return fetchMovieListData(movieListUrl, "getMovieListData");
-}
 
 // funcion para traer peliculas por busquda
 export async function searchMovie(query: string) {
@@ -14,8 +10,22 @@ export async function searchMovie(query: string) {
   console.log(movieSearchUrl);
 }
 
+// funcion para hacer trert peliculas por tipo
+export async function getMovieListData(movieListType: MovieListType, page = 1) {
+  const movieListUrl = getMovieListUrl(movieListType, page);
+  return fetchMovieListData(movieListUrl, "getMovieListData");
+}
+// funcion para traer detalles de peliculas
+
+export async function getMovieDetailsData(movieID) {
+  const movieDetails = getMovieDetailUrl(movieID);
+  return fetchMovieListData( movieDetails, "getMovieDetailsData");
+ 
+
+}
+
 // funcion para hacer el fetch de las url y traer datos
-async function fetchMovieListData(url, functionName) {
+export async function fetchMovieListData(url, functionName) {
   const response = await fetch(url);
   const data = await response.json();
 
@@ -34,6 +44,17 @@ function getMovieListUrl(movieListType: MovieListType, page = 1): string {
   movieListUrl += `&page=${page}`;
 
   return movieListUrl;
+}
+// funcion que monta la url para traer datos de la pagina de DETALLE
+export function getMovieDetailUrl(movieID : number){
+  let movieDetailUrl = apiConfig.baseUrl;
+  movieDetailUrl += `/movie/${movieID}`;
+  movieDetailUrl += `?language=${apiConfig.langIso}`;
+  movieDetailUrl += `&api_key=${apiConfig.apiKey}`;
+ 
+  console.log(movieDetailUrl)
+  return movieDetailUrl;
+  
 }
 
 // funcion que monta la url para el SEARCH
