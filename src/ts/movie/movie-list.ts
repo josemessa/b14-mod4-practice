@@ -90,8 +90,8 @@ export function addMovieGridElements() {
     card.appendChild(year);
     card.appendChild(rating);
     card.appendChild(description);
-    addCoverEventListener()
   });
+  addCoverEventListener()
 }
 
 export async function addMovieListElements() {
@@ -154,8 +154,8 @@ export async function addMovieListElements() {
     dataContainer.appendChild(year);
     dataContainer.appendChild(rating);
     dataContainer.appendChild(description);
-    addCoverEventListener()
   });
+  addCoverEventListener()
 }
 
 export function setCurrentMovieListType(movieListType: MovieListType) {

@@ -19,8 +19,7 @@ export function filterMoviesData(movies): MovieList[] {
 }
 
 export function filterDetailsData(movie): MovieDetails[] {
-  return movie.map((movie) => {
-    const { id, backdrop_path, title, overview, poster_path, release_date, vote_average } =
+  const { id, backdrop_path, title, overview, poster_path, release_date, vote_average } =
       movie;
     return {
       id,
@@ -31,6 +30,6 @@ export function filterDetailsData(movie): MovieDetails[] {
       year: release_date.split("-").shift(),
       description: overview,   
     };
-  });
-}
+  };
+
 

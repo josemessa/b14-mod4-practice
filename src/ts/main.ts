@@ -13,7 +13,7 @@ import { addCoverEventListener } from "./events/events";
 
 // typescript
 showMovieList();
-showDetail(763215)
+
 
 
 

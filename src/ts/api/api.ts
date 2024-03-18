@@ -21,12 +21,25 @@ export async function fetchMovieListData(url, functionName) {
   const response = await fetch(url);
   const data = await response.json();
 
+
   if (data?.success === false) {
     throw new Error(`error${functionName}): ${data.status_message} `);
   }
   return data?.results ?? [];
 }
 
+// funcion para hacer el fetch de los detalles
+export async function fetchMovieDetailsData(url, functionName) {
+  const response = await fetch(url);
+  const data = await response.json();
+
+
+  if (data?.success === false) {
+    throw new Error(`error${functionName}): ${data.status_message} `);
+  }
+
+  return data;
+}
 // funcion que monta la url para traer el TIPO DE LISTA
 function getMovieListUrl(movieListType: MovieListType, page = 1): string {
   let movieListUrl = apiConfig.baseUrl;

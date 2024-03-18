@@ -5,6 +5,7 @@ import {
   addMovieListElements,
   setCurrentMovieListLayout,
   setCurrentMovieListType,
+  showMovieList,
 } from "../movie/movie-list";
 import { showDetail } from "../movie/movie-detail";
 
@@ -42,20 +43,17 @@ export function addCoverEventListener() {
     const target = event.target as HTMLElement;
 
     if (target.className === "cover" && target.hasAttribute("movie-id")) {
-      const movieID = target.getAttribute("movie-id");
-      console.log(movieID);
+      const movieID = target.getAttribute("movie-id");      
+      showDetail(movieID)
     }
   });
 }
 
 
-//  1 añadir listener a la portada
+export function addBackButtonListener(){
+const button= getElementByIdFrom("back-button", "addBackButtonListener")
+  button.addEventListener("click", (event) =>{    
+    showMovieList()
+  })
+}
 
-// añadir id al container para pillarlo en el event / ok!
-// añadir evento click en portada de la pelicula usando el id de container / ok
-// a la imagen añadir id "movie-id" /ok
-// comprobar que  el elemento clickeado contiene id y la clase /ok
-// si es asi llamar a la funcion que monte el nuevo bloque y lo incluya en el dom
-
-// 2- montar la llamada a la api de detalles
-//  -montar mapper y el model de los datos que devuielve la api
