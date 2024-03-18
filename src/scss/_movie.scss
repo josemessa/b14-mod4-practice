@@ -17,5 +17,18 @@
   overflow: hidden;
 }
 .text-container{
+  margin-block: 80px;
   color: white;
+  
+  .title{
+    font-size: 50px;
+  }
+}
+.full-container{
+  background-size: cover;
+  }
+  
+#movie-cover{
+  height: 500px;
+  margin-block: 40px;
 }

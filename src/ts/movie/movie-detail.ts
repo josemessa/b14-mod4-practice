@@ -44,21 +44,22 @@ export function addMovieDetailElements() {
   fullContainer.style.backgroundImage = `url(${
     apiConfig.backdropBaseUrl + movieDetailData.background
   })`;
+
   const movieContainer=document.createElement("div")
   movieContainer.classList.add("movie-container", "container", "d-flex")
 
   // detail elements
   const imgContainer=document.createElement("div")
-  imgContainer.classList.add("img-container", "container")
+  imgContainer.classList.add("img-container")
 
   const cover = document.createElement("img");
   cover.classList.add("cover","border","border-3");
-  cover.setAttribute("id", "movie-id");
+  cover.setAttribute("id", "movie-cover");
   cover.src = `${apiConfig.posterBaseUrl + movieDetailData.cover}`;
 
   // div con los textos
   const textContainer=document.createElement("div")
-  textContainer.classList.add("text-container", "container")
+  textContainer.classList.add("text-container","ms-5")
 
   const title = document.createElement("h2");
   title.classList.add("title");
