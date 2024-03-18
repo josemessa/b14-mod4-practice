@@ -1,5 +1,6 @@
 // funciones que trasnsforman los datos
 
+import { MovieDetails } from "../models/movie-detail.interface";
 import { MovieList } from "../models/movie-list.interface";
 
 export function filterMoviesData(movies): MovieList[] {
@@ -13,6 +14,22 @@ export function filterMoviesData(movies): MovieList[] {
       rating: vote_average,
       year: release_date.split("-").shift(),
       description: overview,      
+    };
+  });
+}
+
+export function filterDetailsData(movie): MovieDetails[] {
+  return movie.map((movie) => {
+    const { id, backdrop_path, title, overview, poster_path, release_date, vote_average } =
+      movie;
+    return {
+      id,
+      background: backdrop_path,   
+      cover: poster_path,
+      title,
+      rating: vote_average,
+      year: release_date.split("-").shift(),
+      description: overview,   
     };
   });
 }

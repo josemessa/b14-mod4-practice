@@ -6,9 +6,9 @@ import {
   setCurrentMovieListLayout,
   setCurrentMovieListType,
 } from "../movie/movie-list";
-import { showDetail } from "../movie/moviedetail";
+import { showDetail } from "../movie/movie-detail";
 
-export const movieID=""
+export const movieID = "";
 // control de eventos
 export function addGridLayoutClickListener() {
   const elementGrid = document.getElementById("grid-display");
@@ -38,18 +38,16 @@ export function addSelectChangeListener() {
 
 export function addCoverEventListener() {
   const container = getElementByIdFrom("container", "addCoverEventListener");
-
   container.addEventListener("click", (event) => {
-    const target = event.target as HTMLElement
-   
+    const target = event.target as HTMLElement;
+
     if (target.className === "cover" && target.hasAttribute("movie-id")) {
       const movieID = target.getAttribute("movie-id");
-      
       console.log(movieID);
-     
     }
   });
 }
+
 
 //  1 añadir listener a la portada
 
