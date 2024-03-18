@@ -29,32 +29,36 @@ export async function showDetail(movieID) {
 
   // data  /ok
   const movieDetail = await getMovieDetailsData(movieID);
-  console.log(movieDetail)
+  console.log(movieDetail);
   movieDetailData = filterDetailsData(movieDetail);
   addMovieDetailElements();
 }
 
 export function addMovieDetailElements() {
   const appElement = getElementByIdFrom("app", "addMovieListElements");
-  appElement.classList.remove("container")
-  appElement.classList.add("main-container")
+  appElement.classList.remove("container");
+  appElement.classList.add("main-container");
 
-  const detailContainer = document.createElement("div");
-  detailContainer.setAttribute("id", "detail-detailContainer");
-  detailContainer.classList.add("detail-container", "container");
+  const fullContainer = document.createElement("div");
+  fullContainer.classList.add("full-container");
+  fullContainer.style.backgroundImage = `url(${
+    apiConfig.backdropBaseUrl + movieDetailData.background
+  })`;
+  const movieContainer=document.createElement("div")
+  movieContainer.classList.add("movie-container", "container", "d-flex")
 
   // detail elements
-
-  const background = document.createElement("img");
-  background.classList.add("background");
-  background.setAttribute("id", "background");
-  background.src=`${apiConfig.backdropBaseUrl+ movieDetailData.background}`
-
+  const imgContainer=document.createElement("div")
+  imgContainer.classList.add("img-container", "container")
 
   const cover = document.createElement("img");
-  cover.classList.add("cover");
+  cover.classList.add("cover","border","border-3");
   cover.setAttribute("id", "movie-id");
   cover.src = `${apiConfig.posterBaseUrl + movieDetailData.cover}`;
+
+  // div con los textos
+  const textContainer=document.createElement("div")
+  textContainer.classList.add("text-container", "container")
 
   const title = document.createElement("h2");
   title.classList.add("title");
@@ -72,13 +76,16 @@ export function addMovieDetailElements() {
   rating.classList.add("rating");
   rating.textContent = `Rating:  ${movieDetailData.rating}`;
 
-  // detailContainer.appendChild(background)
- appElement.appendChild(background)
-  detailContainer.appendChild(cover);
-  detailContainer.appendChild(title);
-  detailContainer.appendChild(year);
-  detailContainer.appendChild(rating);
-  detailContainer.appendChild(description);
+  imgContainer.appendChild(cover)
 
-  appElement.appendChild(detailContainer)
+  textContainer.appendChild(title)
+  textContainer.appendChild(description)
+  textContainer.appendChild(year)
+  textContainer.appendChild(rating)
+
+  movieContainer.appendChild(imgContainer)
+  movieContainer.appendChild(textContainer)
+
+  fullContainer.appendChild(movieContainer)
+  appElement.appendChild(fullContainer)
 }
