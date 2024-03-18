@@ -19,7 +19,7 @@ export function filterMoviesData(movies): MovieList[] {
 }
 
 export function filterDetailsData(movie): MovieDetails[] {
-  const { id, backdrop_path, title, overview, poster_path, release_date, vote_average } =
+  const { id, backdrop_path, title, overview, poster_path, release_date, vote_average , director } =
       movie;
     return {
       id,

@@ -54,9 +54,9 @@ function getMovieListUrl(movieListType: MovieListType, page = 1): string {
 export function getMovieDetailUrl(movieID: number) {
   let movieDetailUrl = apiConfig.baseUrl;
   movieDetailUrl += `/movie/${movieID}`;
-  movieDetailUrl +=`&append_to_response=credits`
   movieDetailUrl += `?language=${apiConfig.langIso}`;
   movieDetailUrl += `&api_key=${apiConfig.apiKey}`;
+  movieDetailUrl +=`&append_to_response=credits`
 
   console.log(movieDetailUrl);
   return movieDetailUrl;

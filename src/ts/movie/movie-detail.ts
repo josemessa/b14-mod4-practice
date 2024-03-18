@@ -36,17 +36,20 @@ export async function showDetail(movieID) {
 
 export function addMovieDetailElements() {
   const appElement = getElementByIdFrom("app", "addMovieListElements");
+  appElement.classList.remove("container")
+  appElement.classList.add("main-container")
 
   const detailContainer = document.createElement("div");
   detailContainer.setAttribute("id", "detail-detailContainer");
-  detailContainer.classList.add("detail-container");
+  detailContainer.classList.add("detail-container", "container");
 
   // detail elements
 
   const background = document.createElement("img");
   background.classList.add("background");
   background.setAttribute("id", "background");
-  background.src = `${apiConfig.posterBaseUrl + movieDetailData.background}`;
+  background.src=`${apiConfig.backdropBaseUrl+ movieDetailData.background}`
+
 
   const cover = document.createElement("img");
   cover.classList.add("cover");
@@ -69,6 +72,8 @@ export function addMovieDetailElements() {
   rating.classList.add("rating");
   rating.textContent = `Rating:  ${movieDetailData.rating}`;
 
+  // detailContainer.appendChild(background)
+ appElement.appendChild(background)
   detailContainer.appendChild(cover);
   detailContainer.appendChild(title);
   detailContainer.appendChild(year);
