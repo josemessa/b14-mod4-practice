@@ -1,5 +1,5 @@
 import { movieID } from "../events/events";
-import{filterMoviesData} from "./mappers"
+
 
 export const apiConfig = {
   apiKey: "15d2ea6d0dc1d476efbca3eba2b9bbfb",

@@ -10,7 +10,7 @@ import { MovieDetails } from "../models/movie-detail.interface";
 import { getElementByIdFrom } from "../utils/utils";
 import { addBackToolbar } from "./toolbars";
 
-let movieDetailData: MovieDetails[] = [];
+let movieDetailData;
 
 // funcion para traer detalles de peliculas / ok
 
@@ -89,7 +89,7 @@ export function addMovieDetailElements() {
   // div con el cast
 
   const castDataContainer = document.createElement("div");
-  castDataContainer.classList.add("cast-data");
+  castDataContainer.classList.add("cast-data", "d-flex");
 
   const director = document.createElement("div");
   director.classList.add("director");
@@ -110,7 +110,7 @@ export function addMovieDetailElements() {
   // Agregar los nombres y las imágenes de los actores
   movieDetailData.cast.forEach((actor) => {
     const actorContainer = document.createElement("div");
-    actorContainer.classList.add("actor-container");
+    actorContainer.classList.add("actor-container", "container");
 
     const actorName = document.createElement("p");
     actorName.classList.add("actor-name");

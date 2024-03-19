@@ -11,7 +11,7 @@ export function filterMoviesData(movies): MovieList[] {
       id,
       cover: poster_path,
       title,
-      rating: vote_average,
+      rating: vote_average.toFixed(1),
       year: release_date.split("-").shift(),
       description: overview,
     };
@@ -48,7 +48,7 @@ export function filterDetailsData(movie): MovieDetails {
     background: backdrop_path,
     cover: poster_path,
     title,
-    rating: vote_average,
+    rating: vote_average.toFixed(1),
     year: release_date.split("-").shift(),
     description: overview,
     director: directorName,
