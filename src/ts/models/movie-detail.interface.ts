@@ -15,5 +15,14 @@ export interface MovieList {
     year: string;
     description: string;
     background: string;
+    cast: string[];
+    director: string;
+    directorPhoto: string;
+    duracion: number,
+  }
+  export interface Actor {
+    profile_path: string;
+    name: string;
+    character: string;
   }
   

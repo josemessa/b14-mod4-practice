@@ -1,7 +1,6 @@
 @use "bootstrap";
+
 .row {
- 
-  
   .cover-container img {
     width: 200px;
   }
@@ -9,26 +8,75 @@
 .card {
   margin-bottom: 30px;
 }
-
+.data-container {
+  margin-left: 30px;
+  margin-block: 80px;
+}
 .description {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.text-container{
-  margin-block: 80px;
+.cast-data {
   color: white;
-  
-  .title{
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  text-shadow: 2px 1px black;
+  padding: 20px;
+  margin-top: 20px;
+}
+.text-container {
+  color: white;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  text-shadow: 2px 1px black;
+  padding: 20px;
+
+  .title {
     font-size: 50px;
   }
 }
-.full-container{
+.full-container {
   background-size: cover;
-  }
-  
-#movie-cover{
+}
+
+.detail-description {
+  font-style: italic;
+  font-size: 1.5rem;
+}
+#movie-cover {
   height: 500px;
-  margin-block: 40px;
+  margin-block: 80px;
+}
+.cast {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  .actor-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinear verticalmente los objetos al centro */
+    justify-content: center;
+  }
+  .actor-character {
+    font-style: italic;
+  }
+  .actor-photo {
+    height: 100px;
+    border-radius: 5%;
+  }
+}
+.director {
+  margin-inline: auto;
+  .director-photo {
+    height: 100px;
+    border-radius: 5%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .movie-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
