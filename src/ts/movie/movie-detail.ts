@@ -71,6 +71,9 @@ export function addMovieDetailElements() {
   description.classList.add("detail-description");
   description.textContent = movieDetailData.description;
 
+  const littleDetailsContainer = document.createElement("div");
+  littleDetailsContainer.classList.add("little-details", "d-flex", "justify-content-around");
+
   const year = document.createElement("p");
   year.classList.add("year");
   year.textContent = `Year:  ${movieDetailData.year}`;
@@ -82,11 +85,11 @@ export function addMovieDetailElements() {
   const rating = document.createElement("p");
   rating.classList.add("rating");
   rating.textContent = `Rating:  ${movieDetailData.rating}`;
-  
-// div con el cast
 
-const castDataContainer= document.createElement("div");
-castDataContainer .classList.add("cast-data");
+  // div con el cast
+
+  const castDataContainer = document.createElement("div");
+  castDataContainer.classList.add("cast-data");
 
   const director = document.createElement("div");
   director.classList.add("director");
@@ -134,16 +137,18 @@ castDataContainer .classList.add("cast-data");
 
   textContainer.appendChild(title);
   textContainer.appendChild(description);
-  textContainer.appendChild(runtime);
-  textContainer.appendChild(year);
-  textContainer.appendChild(rating);
+  textContainer.appendChild(littleDetailsContainer);
+
+  littleDetailsContainer.appendChild(year);
+  littleDetailsContainer.appendChild(runtime);
+  littleDetailsContainer.appendChild(rating);
   castDataContainer.appendChild(director);
   castDataContainer.appendChild(cast);
 
   movieContainer.appendChild(imgContainer);
-  movieContainer.appendChild(dataContainer)
+  movieContainer.appendChild(dataContainer);
   dataContainer.appendChild(textContainer);
-  dataContainer.appendChild(castDataContainer)
+  dataContainer.appendChild(castDataContainer);
 
   fullContainer.appendChild(movieContainer);
   appElement.appendChild(fullContainer);
