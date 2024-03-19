@@ -19,18 +19,16 @@
   overflow: hidden;
 }
 .cast-data {
-  color: white;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
-  text-shadow: 2px 1px black;
+
   padding: 20px;
   margin-top: 20px;
 }
 .text-container {
-  color: white;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
-  text-shadow: 2px 1px black;
+
   padding: 20px;
 
   .title {
@@ -44,6 +42,7 @@
 .detail-description {
   font-style: italic;
   font-size: 1.5rem;
+  color: black;
 }
 #movie-cover {
   height: 500px;
@@ -56,7 +55,7 @@
   .actor-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Alinear verticalmente los objetos al centro */
+    align-items: center;
     justify-content: center;
   }
   .actor-character {
