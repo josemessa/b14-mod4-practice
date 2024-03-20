@@ -9,11 +9,6 @@ import {
 } from "../movie/movie-list";
 import { showDetail } from "../movie/movie-detail";
 import { addToolbar } from "../movie/toolbars";
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f497ae72896821651985cf1ea7c2a7dd9b189636
 
 export const movieID = "";
 // control de eventos
