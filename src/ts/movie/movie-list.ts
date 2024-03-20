@@ -1,10 +1,12 @@
-import { getMovieListData } from "../api/api";
+import { getMovieListData, getMovieSearchData } from "../api/api";
 import { apiConfig } from "../api/api-config";
 import {
   addCoverEventListener,
   addGridLayoutClickListener,
   addListLayoutClickListener,
+  addSearchListener,
   addSelectChangeListener,
+  query,
 } from "../events/events";
 import { filterMoviesData } from "../mappers/mappers";
 import { MovieListLayout, MovieListType } from "../models";
@@ -25,10 +27,35 @@ export async function showMovieList() {
   addGridLayoutClickListener();
   addListLayoutClickListener();
   addSelectChangeListener();
+  addSearchListener()
 
   // Data
   const moviesData = await getMovieListData(currentMovieListType);
   movieListData = filterMoviesData(moviesData);
+
+  if (currentMovieListLayout === MovieListLayout.Grid) {
+    addMovieGridElements();
+  } else if (currentMovieListLayout === MovieListLayout.List) {
+    addMovieListElements();
+  }
+}
+
+export async function showMovieSearch() {
+  // Clean app element
+  const appElement = getElementByIdFrom("app", "addMovieListElements");
+  appElement.innerHTML = "";
+
+  // toolbar
+  addGridLayoutClickListener();
+  addListLayoutClickListener();
+  addSearchListener()
+
+
+  // Data
+  const moviesData = await getMovieSearchData(query, 1);
+  movieListData = filterMoviesData(moviesData);
+  console.log(movieListData);
+
 
   if (currentMovieListLayout === MovieListLayout.Grid) {
     addMovieGridElements();

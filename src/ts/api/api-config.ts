@@ -7,7 +7,7 @@ export const apiConfig = {
   baseUrl: "https://api.themoviedb.org/3/",
   posterBaseUrl: "http://image.tmdb.org/t/p/w500//",
   backdropBaseUrl: "https://image.tmdb.org/t/p/original/",
-  movieId: movieID
+  
 };
 
 

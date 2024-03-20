@@ -6,6 +6,7 @@ import {
   setCurrentMovieListLayout,
   setCurrentMovieListType,
   showMovieList,
+  showMovieSearch,
 } from "../movie/movie-list";
 import { showDetail } from "../movie/movie-detail";
 import { addToolbar } from "../movie/toolbars";
@@ -44,18 +45,33 @@ export function addCoverEventListener() {
     const target = event.target as HTMLElement;
 
     if (target.className === "cover" && target.hasAttribute("movie-id")) {
-      const movieID = target.getAttribute("movie-id");      
-      showDetail(movieID)
+      const movieID = target.getAttribute("movie-id");
+      showDetail(movieID);
     }
   });
 }
 
-
-export function addBackButtonListener(){
-const button= getElementByIdFrom("back-button", "addBackButtonListener")
-  button.addEventListener("click", (event) =>{    
-    addToolbar()
-    showMovieList()
-  })
+export function addBackButtonListener() {
+  const button = getElementByIdFrom("back-button", "addBackButtonListener");
+  button.addEventListener("click", (event) => {
+    addToolbar();
+    showMovieList();
+  });
 }
 
+// evento
+// evento
+export let query: string = "";
+
+export function addSearchListener() {
+  const button = getElementByIdFrom("search-button", "addSearchListener");
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    let searchInput = document.getElementById(
+      "search-input"
+    ) as HTMLInputElement;
+    query = searchInput.value;
+    showMovieSearch();
+    
+  });
+}
