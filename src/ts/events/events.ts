@@ -10,6 +10,8 @@ import {
 import { showDetail } from "../movie/movie-detail";
 import { addToolbar } from "../movie/toolbars";
 
+
+
 export const movieID = "";
 // control de eventos
 export function addGridLayoutClickListener() {
