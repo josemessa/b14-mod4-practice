@@ -1,18 +1,22 @@
 import { movieID } from "../events/events";
 import { MovieListType } from "../models";
 import { apiConfig } from "./api-config";
-
+import { query } from "../events/events";
 // funcion para traer peliculas por busquda
 export async function searchMovie(query: string) {
   const movieSearchUrl = getMovieSearchUrl(query);
   return fetchMovieListData(movieSearchUrl, "searchMovie");
-  console.log(movieSearchUrl);
 }
 
 // funcion para hacer trert peliculas por tipo
 export async function getMovieListData(movieListType: MovieListType, page = 1) {
   const movieListUrl = getMovieListUrl(movieListType, page);
   return fetchMovieListData(movieListUrl, "getMovieListData");
+}
+// funcion para hacer trert peliculas por search
+export async function getMovieSearchData(query, page = 1) {
+  const movieSearchUrl = getMovieSearchUrl(query, page);
+  return fetchMovieListData(movieSearchUrl, "getMovieListData");
 }
 
 
@@ -25,6 +29,7 @@ export async function fetchMovieListData(url, functionName) {
   if (data?.success === false) {
     throw new Error(`error${functionName}): ${data.status_message} `);
   }
+
   return data?.results ?? [];
 }
 
