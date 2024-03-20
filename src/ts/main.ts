@@ -1,25 +1,9 @@
 // scss
 import "../scss/styles.scss";
-import {
-  fetchMovieListData,
-  getMovieDetailUrl,
-
-  searchMovie,
-} from "./api/api";
-import { addMovieGridElements, showMovieList, showMovieSearch } from "./movie/movie-list";
-import { getMovieDetailsData, showDetail } from "./movie/movie-detail";
-import { filterDetailsData } from "./mappers/mappers";
-import { addCoverEventListener, addSearchListener } from "./events/events";
+// funciones
+import { showCurrentMode } from "./movie/movie-list";
 import { addToolbar } from "./movie/toolbars";
 
 // typescript
-addToolbar()
-
-showMovieList()
-
-
-
-
-
-
-
+addToolbar();
+showCurrentMode();

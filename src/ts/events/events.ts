@@ -1,11 +1,9 @@
 import { getElementByIdFrom } from "../utils/utils";
 import { MovieListLayout, MovieListType } from "../models";
 import {
-  addMovieGridElements,
-  addMovieListElements,
   setCurrentMovieListLayout,
   setCurrentMovieListType,
-  showMovieList,
+  showCurrentMode,
   showMovieSearch,
 } from "../movie/movie-list";
 import { showDetail } from "../movie/movie-detail";
@@ -55,12 +53,10 @@ export function addBackButtonListener() {
   const button = getElementByIdFrom("back-button", "addBackButtonListener");
   button.addEventListener("click", (event) => {
     addToolbar();
-    showMovieList();
+    showCurrentMode();
   });
 }
 
-// evento
-// evento
 export let query: string = "";
 
 export function addSearchListener() {
@@ -72,6 +68,5 @@ export function addSearchListener() {
     ) as HTMLInputElement;
     query = searchInput.value;
     showMovieSearch();
-    
   });
 }

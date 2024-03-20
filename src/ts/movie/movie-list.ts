@@ -9,16 +9,25 @@ import {
   query,
 } from "../events/events";
 import { filterMoviesData } from "../mappers/mappers";
-import { MovieListLayout, MovieListType } from "../models";
+import { MovieListLayout, MovieListType, PageMode } from "../models";
 import { MovieList } from "../models/movie-list.interface";
 import { getElementByIdFrom, showContent } from "../utils/utils";
-import { addToolbar } from "./toolbars";
+
 
 let currentMovieListType = MovieListType.NowPlaying;
 let currentMovieListLayout = MovieListLayout.Grid;
 let movieListData: MovieList[] = [];
+let currentMode = PageMode.GridList;
 
+export function showCurrentMode() {
+  if (currentMode === PageMode.GridList) {
+    showMovieList();
+  } else if (currentMode === PageMode.Search) {
+    showMovieSearch();
+  }
+}
 export async function showMovieList() {
+  currentMode = PageMode.GridList;
   // Clean app element
   const appElement = getElementByIdFrom("app", "addMovieListElements");
   appElement.innerHTML = "";
@@ -27,7 +36,7 @@ export async function showMovieList() {
   addGridLayoutClickListener();
   addListLayoutClickListener();
   addSelectChangeListener();
-  addSearchListener()
+  addSearchListener();
 
   // Data
   const moviesData = await getMovieListData(currentMovieListType);
@@ -41,6 +50,7 @@ export async function showMovieList() {
 }
 
 export async function showMovieSearch() {
+  currentMode = PageMode.Search;
   // Clean app element
   const appElement = getElementByIdFrom("app", "addMovieListElements");
   appElement.innerHTML = "";
@@ -48,14 +58,13 @@ export async function showMovieSearch() {
   // toolbar
   addGridLayoutClickListener();
   addListLayoutClickListener();
-  addSearchListener()
-
+  addSelectChangeListener();
+  addSearchListener();
 
   // Data
   const moviesData = await getMovieSearchData(query, 1);
   movieListData = filterMoviesData(moviesData);
   console.log(movieListData);
-
 
   if (currentMovieListLayout === MovieListLayout.Grid) {
     addMovieGridElements();
@@ -117,7 +126,7 @@ export function addMovieGridElements() {
     card.appendChild(rating);
     card.appendChild(description);
   });
-  addCoverEventListener()
+  addCoverEventListener();
 }
 
 export async function addMovieListElements() {
@@ -181,7 +190,7 @@ export async function addMovieListElements() {
     dataContainer.appendChild(rating);
     dataContainer.appendChild(description);
   });
-  addCoverEventListener()
+  addCoverEventListener();
 }
 
 export function setCurrentMovieListType(movieListType: MovieListType) {
@@ -192,6 +201,6 @@ export function setCurrentMovieListType(movieListType: MovieListType) {
 export function setCurrentMovieListLayout(movieListLayout: MovieListLayout) {
   if (currentMovieListLayout !== movieListLayout) {
     currentMovieListLayout = movieListLayout;
-    showMovieList();
+    showCurrentMode();
   }
 }
