@@ -8,6 +8,7 @@ import {
   showMovieList,
 } from "../movie/movie-list";
 import { showDetail } from "../movie/movie-detail";
+import { addToolbar } from "../movie/toolbars";
 
 export const movieID = "";
 // control de eventos
@@ -53,6 +54,7 @@ export function addCoverEventListener() {
 export function addBackButtonListener(){
 const button= getElementByIdFrom("back-button", "addBackButtonListener")
   button.addEventListener("click", (event) =>{    
+    addToolbar()
     showMovieList()
   })
 }
