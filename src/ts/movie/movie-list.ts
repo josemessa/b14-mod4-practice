@@ -1,21 +1,20 @@
-import { getMovieListData, getMovieSearchData } from "../api/api";
+import { getMovieListData } from "../api/api";
 import { apiConfig } from "../api/api-config";
 import {
   addCoverEventListener,
   addGridLayoutClickListener,
-  addListLayoutClickListener, 
+  addListLayoutClickListener,
   addSelectChangeListener,
- } from "../events/events";
+} from "../events/events";
 import { filterMoviesData } from "../mappers/mappers";
 import { MovieListLayout, MovieListType } from "../models";
 import { MovieList } from "../models/movie-list.interface";
 import { getElementByIdFrom, showContent } from "../utils/utils";
-import { addSearchListener } from "./movie-search";
 import { addToolbar } from "./toolbars";
 
-export let currentMovieListType = MovieListType.NowPlaying;
-export let currentMovieListLayout = MovieListLayout.Grid;
-export let movieListData: MovieList[] = [];
+let currentMovieListType = MovieListType.NowPlaying;
+let currentMovieListLayout = MovieListLayout.Grid;
+let movieListData: MovieList[] = [];
 
 export async function showMovieList() {
   // Clean app element
@@ -26,7 +25,6 @@ export async function showMovieList() {
   addGridLayoutClickListener();
   addListLayoutClickListener();
   addSelectChangeListener();
-  addSearchListener()
 
   // Data
   const moviesData = await getMovieListData(currentMovieListType);
@@ -92,9 +90,7 @@ export function addMovieGridElements() {
     card.appendChild(rating);
     card.appendChild(description);
   });
-  addCoverEventListener();
-  addSearchListener()
-  
+  addCoverEventListener()
 }
 
 export async function addMovieListElements() {
@@ -158,8 +154,7 @@ export async function addMovieListElements() {
     dataContainer.appendChild(rating);
     dataContainer.appendChild(description);
   });
-  addCoverEventListener();
-  addSearchListener()
+  addCoverEventListener()
 }
 
 export function setCurrentMovieListType(movieListType: MovieListType) {
@@ -173,6 +168,3 @@ export function setCurrentMovieListLayout(movieListLayout: MovieListLayout) {
     showMovieList();
   }
 }
-
-
-
