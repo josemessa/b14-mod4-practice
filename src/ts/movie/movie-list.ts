@@ -39,7 +39,7 @@ export async function showMovieList() {
 
 export function addMovieGridElements() {
   const appElement = getElementByIdFrom("app", "addMovieListElements");
-
+  appElement.innerHTML = "";
   // ForEach con los movie data
   // crear un element y añadirlo a appElement
   const container = document.createElement("div");
