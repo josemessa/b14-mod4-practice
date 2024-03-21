@@ -27,6 +27,7 @@ export function addListLayoutClickListener() {
 }
 
 export function addSelectChangeListener() {
+  
   const elementSelect = getElementByIdFrom(
     "movie-type-select",
     "addSelectChangeListener"
@@ -69,6 +70,7 @@ export function addSearchListener() {
     ) as HTMLInputElement;
     query = searchInput.value;
     showMovieSearch();
+    setPage(1)
     addPaginationListeners()
   });
 }

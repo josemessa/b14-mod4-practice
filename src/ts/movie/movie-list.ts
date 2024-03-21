@@ -1,4 +1,4 @@
-import { getMovieListData, getMovieSearchData, page } from "../api/api";
+import { getMovieListData, getMovieSearchData, page, setPage } from "../api/api";
 import { apiConfig } from "../api/api-config";
 import {
   addCoverEventListener,
@@ -51,6 +51,7 @@ export async function showMovieList() {
 }
 
 export async function showMovieSearch() {
+ 
   const toolbar = getElementByIdFrom("toolbar", "showMovieSearch");
   toolbar.innerHTML= "";
   currentMode = PageMode.Search;
@@ -229,6 +230,7 @@ export async function addMovieListElements() {
 
 export function setCurrentMovieListType(movieListType: MovieListType) {
   currentMovieListType = movieListType;
+  setPage(1)
   showMovieList();
 }
 
