@@ -51,6 +51,7 @@
 }
 .little-details{
   font-weight: 700;
+  font-size: 1.5rem;
 }
 .cast {
   display: flex;
@@ -80,6 +81,9 @@
     margin-right: 30px;
     border-radius: 5%;
   }
+}
+.genres{
+  font-size: 1.5rem;
 }
 @media screen and (max-width: 768px) {
   .movie-container {

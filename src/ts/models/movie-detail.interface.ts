@@ -19,6 +19,7 @@ export interface MovieList {
     director: string;
     directorPhoto: string;
     duracion: number,
+    generos: string
   }
   export interface Actor {
     profile_path: string;

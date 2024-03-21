@@ -29,6 +29,8 @@ export function filterDetailsData(movie): MovieDetails {
     vote_average,
     credits,
     runtime,
+    genres,
+    
   } = movie;
 
   const director = credits.crew.find(
@@ -55,44 +57,7 @@ export function filterDetailsData(movie): MovieDetails {
     directorPhoto: directorPic,
     cast,
     duracion: runtime,
+    generos: genres.map((genre) => genre.name).join(', '),
   };
 }
 
-// export function filterDetailsData(movie): MovieDetails[] {
-//   const {
-//     id,
-//     backdrop_path,
-//     title,
-//     overview,
-//     poster_path,
-//     release_date,
-//     vote_average,
-//     credits,
-//     runtime,
-//   } = movie;
-//   const directorName = credits.crew.find(
-//     (crewMember) => crewMember.job === "Director"
-//   ).name;
-//   const directorPic = credits.crew.find(
-//     (crewMember) => crewMember.job === "Director"
-//   ).profile_path;
-
-//   const cast = credits.cast.slice(0, 6).map((actor) => ({
-//     name: actor.name,
-//     profile_path: actor.profile_path,
-//   }));
-
-//   return {
-//     id,
-//     background: backdrop_path,
-//     cover: poster_path,
-//     title,
-//     rating: vote_average,
-//     year: release_date.split("-").shift(),
-//     description: overview,
-//     director: directorName,
-//     directorPhoto: directorPic,
-//     cast: castNames,
-//     duracion: runtime,
-//   };
-// }

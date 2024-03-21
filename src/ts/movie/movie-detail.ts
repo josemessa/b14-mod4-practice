@@ -86,6 +86,10 @@ export function addMovieDetailElements() {
   rating.classList.add("rating");
   rating.textContent = `Rating:  ${movieDetailData.rating}`;
 
+  const genres= document.createElement("div")
+  genres.classList.add("genres")
+  genres.textContent = (`Generos:  ${movieDetailData.generos}`)
+
   // div con el cast
 
   const castDataContainer = document.createElement("div");
@@ -138,6 +142,7 @@ export function addMovieDetailElements() {
   textContainer.appendChild(title);
   textContainer.appendChild(description);
   textContainer.appendChild(littleDetailsContainer);
+  textContainer.appendChild(genres)
 
   littleDetailsContainer.appendChild(year);
   littleDetailsContainer.appendChild(runtime);
