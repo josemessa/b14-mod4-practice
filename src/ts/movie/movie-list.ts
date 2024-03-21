@@ -1,4 +1,9 @@
-import { getMovieListData, getMovieSearchData, page, setPage } from "../api/api";
+import {
+  getMovieListData,
+  getMovieSearchData,
+  page,
+  setPage,
+} from "../api/api";
 import { apiConfig } from "../api/api-config";
 import {
   addCoverEventListener,
@@ -51,14 +56,13 @@ export async function showMovieList() {
 }
 
 export async function showMovieSearch() {
- 
   const toolbar = getElementByIdFrom("toolbar", "showMovieSearch");
-  toolbar.innerHTML= "";
+  toolbar.innerHTML = "";
   currentMode = PageMode.Search;
   // Clean app element
   const appElement = getElementByIdFrom("app", "addMovieListElements");
   appElement.innerHTML = "";
-  
+
   // toolbar
   addToolbar();
   addGridLayoutClickListener();
@@ -96,7 +100,14 @@ export function addMovieGridElements() {
 
   movieListData.forEach((movie) => {
     const card = document.createElement("div");
-    card.classList.add("card");
+    card.classList.add(
+      "card",
+      "bg-dark-subtle",
+      "border",
+      "border",
+      "border-4",
+      "border-black"
+    );
     const column = document.createElement("div");
     column.classList.add("col-lg-3", "col-md-4", "col-sm-6");
 
@@ -230,7 +241,7 @@ export async function addMovieListElements() {
 
 export function setCurrentMovieListType(movieListType: MovieListType) {
   currentMovieListType = movieListType;
-  setPage(1)
+  setPage(1);
   showMovieList();
 }
 

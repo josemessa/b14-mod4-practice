@@ -1,6 +1,8 @@
 @use "bootstrap";
 body{
-  background-color: rgb(85, 85, 85);
+  background-image: url(public/background.webp);
+  background-position: center;
+  background-size: cover;
 }
 .cover{
   border-radius: 1%;
