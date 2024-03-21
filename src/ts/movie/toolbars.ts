@@ -26,13 +26,12 @@ export function addToolbar() {
 export function addBackToolbar() {
   const toolbarElement: any = document.getElementById("toolbar");
   toolbarElement.innerHTML = "";
-  
-  
+
   const appElement: any = document.getElementById("app");
   const elementContent = document.createElement("div");
 
-  elementContent.innerHTML = ` <div class="container mt-4 mb-4 align-items-center">
-  <div><button class=" border border-0 bg-transparent " id="back-button"><img src="back.svg" alt="">
+  elementContent.innerHTML = ` <div class="container  mt-4 mb-4 align-items-center">
+  <div class=""><button class=" border border-2 d-flex align-items-center p-1 border-secondary bg-warning" id="back-button"><img src="back.svg" alt=""><h2 class="fs-5 ">  Volver atras</h2>
   </button></div>
   
 </div>`;

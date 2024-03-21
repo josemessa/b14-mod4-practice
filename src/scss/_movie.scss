@@ -1,11 +1,15 @@
 @use "bootstrap";
-body{
-  background-image: url(public/background.webp);
-  background-position: center;
-  background-size: cover;
+body {
+  // font-family: 'Narrow';
+  background-color: rgb(57, 57, 57);
 }
-.cover{
-  border-radius: 1%;
+.title {
+  text-transform: uppercase;
+  
+}
+.page-link{
+  border-color: black;
+  color: black;
 }
 .row {
   .cover-container img {
@@ -50,7 +54,6 @@ body{
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      
     }
     .actor-character {
       font-style: italic;
@@ -79,19 +82,17 @@ body{
   font-style: italic;
   font-size: 1.5rem;
   color: black;
-
 }
 #movie-cover {
   height: 500px;
   margin-block: 80px;
 }
-.little-details{
+.little-details {
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-
-.genres{
+.genres {
   font-size: 1.5rem;
 }
 @media screen and (max-width: 768px) {
@@ -99,19 +100,18 @@ body{
     flex-direction: column;
     align-items: center;
   }
-  .data-container{
+  .data-container {
     flex-direction: column;
     max-width: 80%;
   }
-  .cast-data{
+  .cast-data {
     flex-direction: column;
-    .cast{
+    .cast {
       flex-direction: column;
-      .actor-photo{
+      .actor-photo {
         width: 80%;
         height: auto;
       }
     }
-
   }
 }

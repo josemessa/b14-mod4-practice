@@ -10,7 +10,7 @@ export function filterMoviesData(movies): MovieList[] {
     return {
       id,
       cover: poster_path,
-      title,
+      title, 
       rating: vote_average.toFixed(1),
       year: release_date.split("-").shift(),
       description: overview,

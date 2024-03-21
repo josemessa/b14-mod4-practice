@@ -102,7 +102,8 @@ export function addMovieGridElements() {
     const card = document.createElement("div");
     card.classList.add(
       "card",
-      "bg-dark-subtle",
+
+      "bg-warning",
       "border",
       "border",
       "border-4",
@@ -119,19 +120,19 @@ export function addMovieGridElements() {
     cover.setAttribute("movie-id", `${movie.id}`);
 
     const title = document.createElement("h2");
-    title.classList.add("title");
+    title.classList.add("title", "m-2");
     title.textContent = movie.title;
 
     const description = document.createElement("p");
-    description.classList.add("description");
+    description.classList.add("description", "m-2");
     description.textContent = movie.description;
 
     const year = document.createElement("p");
-    year.classList.add("year");
+    year.classList.add("year", "m-2");
     year.textContent = `Year:  ${movie.year}`;
 
     const rating = document.createElement("p");
-    rating.classList.add("rating");
+    rating.classList.add("rating", "m-2");
     rating.textContent = `Rating:  ${movie.rating}`;
     // estructuracion de carpetas
     column.appendChild(card);
@@ -147,11 +148,11 @@ export function addMovieGridElements() {
   pagination.classList.add("container", "d-flex", "justify-content-center");
   pagination.innerHTML = `<nav aria-label="Page navigation example">
     <ul class="pagination">
-      <li class="page-item"><a class="page-link" id="previous" href="javascript:void(0)">Previous</a></li>
-      <li class="page-item"><a class="page-link" id="page1" href="javascript:void(0)">1</a></li>
-      <li class="page-item"><a class="page-link" id="page2" href="javascript:void(0)">2</a></li>
-      <li class="page-item"><a class="page-link" id="page3" href="javascript:void(0)">3</a></li>
-      <li class="page-item"><a class="page-link" id="next" href="javascript:void(0)">Next</a></li>
+      <li class="page-item"><a class="page-link bg-warning" id="previous" href="javascript:void(0)">Previous</a></li>
+      <li class="page-item"><a class="page-link bg-warning" id="page1" href="javascript:void(0)">1</a></li>
+      <li class="page-item"><a class="page-link bg-warning" id="page2" href="javascript:void(0)">2</a></li>
+      <li class="page-item"><a class="page-link bg-warning" id="page3" href="javascript:void(0)">3</a></li>
+      <li class="page-item"><a class="page-link bg-warning" id="next" href="javascript:void(0)">Next</a></li>
     </ul>
   </nav>`;
 
@@ -170,14 +171,20 @@ export async function addMovieListElements() {
   container.classList.add("container");
 
   const row = document.createElement("div");
-  row.classList.add("row");
+  row.classList.add("row", "row-gap-4");
 
   appElement.appendChild(container);
   container.appendChild(row);
 
   movieListData.forEach((movie) => {
     const card = document.createElement("div");
-    card.classList.add("d-flex");
+    card.classList.add(
+      "d-flex",
+      "bg-warning",
+      "border",
+      "border-3",
+      "border-black"
+    );
     const column = document.createElement("div");
     column.classList.add("d-flex", "flex-column");
 
@@ -192,22 +199,27 @@ export async function addMovieListElements() {
     cover.setAttribute("movie-id", `${movie.id}`);
 
     const dataContainer = document.createElement("div");
-    dataContainer.classList.add("data-container");
+    dataContainer.classList.add(
+      "datacContainer",
+      "d-flex",
+      "flex-column",
+      "justify-content-center"
+    );
 
     const title = document.createElement("h2");
-    title.classList.add("title");
+    title.classList.add("title", "ms-4");
     title.textContent = movie.title;
 
     const description = document.createElement("p");
-    description.classList.add("description");
+    description.classList.add("description", "ms-4");
     description.textContent = movie.description;
 
     const year = document.createElement("p");
-    year.classList.add("year");
+    year.classList.add("year", "ms-4");
     year.textContent = `Year:  ${movie.year}`;
 
     const rating = document.createElement("p");
-    rating.classList.add("rating");
+    rating.classList.add("rating", "ms-4");
     rating.textContent = `Rating:  ${movie.rating}`;
 
     // estructuracion de carpetas
@@ -225,12 +237,12 @@ export async function addMovieListElements() {
   const pagination = document.createElement("div");
   pagination.classList.add("container", "d-flex", "justify-content-center");
   pagination.innerHTML = `<nav aria-label="Page navigation example">
-    <ul class="pagination">
-    <li class="page-item"><a class="page-link" id="previous" href="javascript:void(0)">Previous</a></li>
-      <li class="page-item"><a class="page-link" id="page1" href="javascript:void(0)">1</a></li>
-      <li class="page-item"><a class="page-link" id="page2" href="javascript:void(0)">2</a></li>
-      <li class="page-item"><a class="page-link" id="page3" href="javascript:void(0)">3</a></li>
-      <li class="page-item"><a class="page-link" id="next" href="javascript:void(0)">Next</a></li>
+    <ul class="pagination mt-5 mb-5">
+    <li class="page-item"><a class="page-link bg-warning" id="previous" href="javascript:void(0)">Previous</a></li>
+      <li class="page-item"><a class="page-link bg-warning" id="page1" href="javascript:void(0)">1</a></li>
+      <li class="page-item"><a class="page-link bg-warning" id="page2" href="javascript:void(0)">2</a></li>
+      <li class="page-item"><a class="page-link bg-warning" id="page3" href="javascript:void(0)">3</a></li>
+      <li class="page-item"><a class="page-link bg-warning" id="next" href="javascript:void(0)">Next</a></li>
     </ul>
   </nav>`;
 
