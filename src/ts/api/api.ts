@@ -4,27 +4,26 @@ import { apiConfig } from "./api-config";
 import { query } from "../events/events";
 // funcion para traer peliculas por busquda
 export async function searchMovie(query: string) {
-  const movieSearchUrl = getMovieSearchUrl(query);
+  const movieSearchUrl = getMovieSearchUrl(query, page);
   return fetchMovieListData(movieSearchUrl, "searchMovie");
 }
+export let page: number = 1;
 
 // funcion para hacer trert peliculas por tipo
-export async function getMovieListData(movieListType: MovieListType, page = 1) {
+export async function getMovieListData(movieListType: MovieListType) {
   const movieListUrl = getMovieListUrl(movieListType, page);
   return fetchMovieListData(movieListUrl, "getMovieListData");
 }
 // funcion para hacer trert peliculas por search
-export async function getMovieSearchData(query, page = 1) {
+export async function getMovieSearchData(query, page) {
   const movieSearchUrl = getMovieSearchUrl(query, page);
   return fetchMovieListData(movieSearchUrl, "getMovieListData");
 }
-
 
 // funcion para hacer el fetch de las url y traer datos
 export async function fetchMovieListData(url, functionName) {
   const response = await fetch(url);
   const data = await response.json();
-
 
   if (data?.success === false) {
     throw new Error(`error${functionName}): ${data.status_message} `);
@@ -38,7 +37,6 @@ export async function fetchMovieDetailsData(url, functionName) {
   const response = await fetch(url);
   const data = await response.json();
 
-
   if (data?.success === false) {
     throw new Error(`error${functionName}): ${data.status_message} `);
   }
@@ -46,7 +44,7 @@ export async function fetchMovieDetailsData(url, functionName) {
   return data;
 }
 // funcion que monta la url para traer el TIPO DE LISTA
-function getMovieListUrl(movieListType: MovieListType, page = 1): string {
+function getMovieListUrl(movieListType: MovieListType, page): string {
   let movieListUrl = apiConfig.baseUrl;
   movieListUrl += `/movie/${movieListType}`;
   movieListUrl += `?language=${apiConfig.langIso}`;
@@ -61,14 +59,14 @@ export function getMovieDetailUrl(movieID: number) {
   movieDetailUrl += `/movie/${movieID}`;
   movieDetailUrl += `?language=${apiConfig.langIso}`;
   movieDetailUrl += `&api_key=${apiConfig.apiKey}`;
-  movieDetailUrl +=`&append_to_response=credits`
+  movieDetailUrl += `&append_to_response=credits`;
 
   console.log(movieDetailUrl);
   return movieDetailUrl;
 }
 
 // funcion que monta la url para el SEARCH
-function getMovieSearchUrl(query: string, page = 1): string {
+function getMovieSearchUrl(query: string, page){
   let movieListUrl = apiConfig.baseUrl;
   movieListUrl += "search/movie";
   movieListUrl += `?query=${query}`;
@@ -78,4 +76,15 @@ function getMovieSearchUrl(query: string, page = 1): string {
   movieListUrl += `&page=${page}`;
 
   return movieListUrl;
+}
+
+export function setPage(number: number) {
+  page = number;
+}
+
+export function setPreviousButton() {
+  page > 1 ? (page -= 1) : (page = page);
+}
+export function setNextButton() {
+  page < 3 ? (page += 1) : (page = page);
 }

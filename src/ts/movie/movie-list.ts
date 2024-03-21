@@ -1,9 +1,10 @@
-import { getMovieListData, getMovieSearchData } from "../api/api";
+import { getMovieListData, getMovieSearchData, page } from "../api/api";
 import { apiConfig } from "../api/api-config";
 import {
   addCoverEventListener,
   addGridLayoutClickListener,
   addListLayoutClickListener,
+  addPaginationListeners,
   addSearchListener,
   addSelectChangeListener,
   query,
@@ -12,7 +13,6 @@ import { filterMoviesData } from "../mappers/mappers";
 import { MovieListLayout, MovieListType, PageMode } from "../models";
 import { MovieList } from "../models/movie-list.interface";
 import { getElementByIdFrom, showContent } from "../utils/utils";
-
 
 let currentMovieListType = MovieListType.NowPlaying;
 let currentMovieListLayout = MovieListLayout.Grid;
@@ -59,10 +59,11 @@ export async function showMovieSearch() {
   addGridLayoutClickListener();
   addListLayoutClickListener();
   addSelectChangeListener();
+
   addSearchListener();
 
   // Data
-  const moviesData = await getMovieSearchData(query, 1);
+  const moviesData = await getMovieSearchData(query, page);
   movieListData = filterMoviesData(moviesData);
   console.log(movieListData);
 
@@ -126,20 +127,21 @@ export function addMovieGridElements() {
     card.appendChild(rating);
     card.appendChild(description);
   });
-  const pagination= document.createElement("div")
-    pagination.classList.add("container","d-flex", "justify-content-center")
-    pagination.innerHTML+= `<nav aria-label="Page navigation example">
+  const pagination = document.createElement("div");
+  pagination.classList.add("container", "d-flex", "justify-content-center");
+  pagination.innerHTML += `<nav aria-label="Page navigation example">
     <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      <li class="page-item"><a class="page-link" id="previous" href="javascript:void(0)">Previous</a></li>
+      <li class="page-item"><a class="page-link" id="page1" href="javascript:void(0)">1</a></li>
+      <li class="page-item"><a class="page-link" id="page2" href="javascript:void(0)">2</a></li>
+      <li class="page-item"><a class="page-link" id="page3" href="javascript:void(0)">3</a></li>
+      <li class="page-item"><a class="page-link" id="next" href="javascript:void(0)">Next</a></li>
     </ul>
-  </nav>`
+  </nav>`;
 
-  container.appendChild(pagination)
+  container.appendChild(pagination);
   addCoverEventListener();
+  addPaginationListeners();
 }
 
 export async function addMovieListElements() {
@@ -192,7 +194,6 @@ export async function addMovieListElements() {
     rating.classList.add("rating");
     rating.textContent = `Rating:  ${movie.rating}`;
 
-    
     // estructuracion de carpetas
     column.appendChild(card);
     row.appendChild(column);
@@ -205,20 +206,21 @@ export async function addMovieListElements() {
     dataContainer.appendChild(rating);
     dataContainer.appendChild(description);
   });
-  const pagination= document.createElement("div")
-    pagination.classList.add("container","d-flex", "justify-content-center")
-    pagination.innerHTML+= `<nav aria-label="Page navigation example">
+  const pagination = document.createElement("div");
+  pagination.classList.add("container", "d-flex", "justify-content-center");
+  pagination.innerHTML += `<nav aria-label="Page navigation example">
     <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    <li class="page-item"><a class="page-link" id="previous" href="javascript:void(0)">Previous</a></li>
+      <li class="page-item"><a class="page-link" id="page1" href="javascript:void(0)">1</a></li>
+      <li class="page-item"><a class="page-link" id="page2" href="javascript:void(0)">2</a></li>
+      <li class="page-item"><a class="page-link" id="page3" href="javascript:void(0)">3</a></li>
+      <li class="page-item"><a class="page-link" id="next" href="javascript:void(0)">Next</a></li>
     </ul>
-  </nav>`
+  </nav>`;
 
-  container.appendChild(pagination)
+  container.appendChild(pagination);
   addCoverEventListener();
+  addPaginationListeners();
 }
 
 export function setCurrentMovieListType(movieListType: MovieListType) {
