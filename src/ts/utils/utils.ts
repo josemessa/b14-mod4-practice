@@ -17,7 +17,7 @@ export function showContent(content: unknown): void {
   let newDiv= document.createElement("div") 
   appElement?.appendChild(newDiv)
   if (newDiv !== null) {
-    newDiv.innerHTML += `<pre>${JSON.stringify(
+    newDiv.innerHTML= `<pre>${JSON.stringify(
       content,
       undefined,
       2

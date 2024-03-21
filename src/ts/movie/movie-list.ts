@@ -13,6 +13,7 @@ import { filterMoviesData } from "../mappers/mappers";
 import { MovieListLayout, MovieListType, PageMode } from "../models";
 import { MovieList } from "../models/movie-list.interface";
 import { getElementByIdFrom, showContent } from "../utils/utils";
+import { addToolbar } from "./toolbars";
 
 let currentMovieListType = MovieListType.NowPlaying;
 let currentMovieListLayout = MovieListLayout.Grid;
@@ -50,12 +51,15 @@ export async function showMovieList() {
 }
 
 export async function showMovieSearch() {
+  const toolbar = getElementByIdFrom("toolbar", "showMovieSearch");
+  toolbar.innerHTML= "";
   currentMode = PageMode.Search;
   // Clean app element
   const appElement = getElementByIdFrom("app", "addMovieListElements");
   appElement.innerHTML = "";
-
+  
   // toolbar
+  addToolbar();
   addGridLayoutClickListener();
   addListLayoutClickListener();
   addSelectChangeListener();
@@ -129,7 +133,7 @@ export function addMovieGridElements() {
   });
   const pagination = document.createElement("div");
   pagination.classList.add("container", "d-flex", "justify-content-center");
-  pagination.innerHTML += `<nav aria-label="Page navigation example">
+  pagination.innerHTML = `<nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item"><a class="page-link" id="previous" href="javascript:void(0)">Previous</a></li>
       <li class="page-item"><a class="page-link" id="page1" href="javascript:void(0)">1</a></li>
@@ -208,7 +212,7 @@ export async function addMovieListElements() {
   });
   const pagination = document.createElement("div");
   pagination.classList.add("container", "d-flex", "justify-content-center");
-  pagination.innerHTML += `<nav aria-label="Page navigation example">
+  pagination.innerHTML = `<nav aria-label="Page navigation example">
     <ul class="pagination">
     <li class="page-item"><a class="page-link" id="previous" href="javascript:void(0)">Previous</a></li>
       <li class="page-item"><a class="page-link" id="page1" href="javascript:void(0)">1</a></li>
