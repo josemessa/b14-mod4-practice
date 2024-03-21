@@ -5,8 +5,8 @@ export function addToolbar() {
   const elementContent = document.createElement("div");
 
   elementContent.innerHTML = `<div class="container mt-4 mb-4 d-flex justify-content-between align-items-center">
-    <div><button class=" border border-0 bg-transparent " id="grid-display"><img src="grid-icon.svg" alt="">
-    </button><button class=" border border-0 bg-transparent" id="list-display"><img src="list-icon.svg" alt=""></button> </div>
+    <div><button class=" border border-secondary border-2 bg-warning " id="grid-display"><img src="grid-icon.svg" alt="">
+    </button><button class=" border border-2 border-secondary bg-warning" id="list-display"><img src="list-icon.svg" alt=""></button> </div>
   <div>
     <select
     id="movie-type-select"
