@@ -1,4 +1,15 @@
 @use "bootstrap";
+$light-theme: (
+  "main-color": none,
+    "background-image": none,
+  );
+  
+$dark-theme: (
+    "main-color": rgb(255, 230, 0),
+    "background-image": url(background.webp),
+    );
+    
+$theme: $light-theme; 
 body {
   // font-family: 'Narrow';
   // background-color: rgb(57, 57, 57);
