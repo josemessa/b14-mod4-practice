@@ -26,6 +26,8 @@ let movieListData: MovieList[] = [];
 let currentMode = PageMode.GridList;
 
 export function showCurrentMode() {
+
+
   if (currentMode === PageMode.GridList) {
     showMovieList();
   } else if (currentMode === PageMode.Search) {
@@ -43,7 +45,6 @@ export async function showMovieList() {
   addGridLayoutClickListener();
   addListLayoutClickListener();
   addSelectChangeListener();
-  addSearchListener();
 
   // Data
   const moviesData = await getMovieListData(currentMovieListType);
@@ -69,8 +70,6 @@ export async function showMovieSearch() {
   addGridLayoutClickListener();
   addListLayoutClickListener();
   addSelectChangeListener();
-
-  addSearchListener();
 
   // Data
   const moviesData = await getMovieSearchData(query, page);

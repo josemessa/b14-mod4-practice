@@ -69,9 +69,8 @@ export function addSearchListener() {
       "search-input"
     ) as HTMLInputElement;
     query = searchInput.value;
+    setPage(1)    
     showMovieSearch();
-    setPage(1)
-    addPaginationListeners()
   });
 }
 
