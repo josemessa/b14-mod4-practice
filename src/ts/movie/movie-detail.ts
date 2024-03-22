@@ -109,12 +109,12 @@ export function addMovieDetailElements() {
   }`;
 
   const cast = document.createElement("div");
-  cast.classList.add("cast");
+  cast.classList.add("cast", "d-flex","flex-row");
 
   // Agregar los nombres y las imágenes de los actores
   movieDetailData.cast.forEach((actor) => {
     const actorContainer = document.createElement("div");
-    actorContainer.classList.add("actor-container", "container");
+    actorContainer.classList.add("actor-container", "container", "card","justify-content-around");
 
     const actorName = document.createElement("p");
     actorName.classList.add("actor-name");
@@ -128,9 +128,9 @@ export function addMovieDetailElements() {
     actorPhoto.classList.add("actor-photo");
     actorPhoto.src = `${apiConfig.posterBaseUrl + actor.profile_path}`;
 
+    actorContainer.appendChild(actorPhoto);
     actorContainer.appendChild(actorName);
     actorContainer.appendChild(actorCharacter);
-    actorContainer.appendChild(actorPhoto);
     cast.appendChild(actorContainer);
   });
 
