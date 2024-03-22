@@ -103,12 +103,12 @@ export function addMovieGridElements() {
     const card = document.createElement("div");
     card.classList.add(
       "card",
-
+      "mb-4",
       "bg-warning",
       "border",
       "border",
       "border-4",
-      "border-black"
+      // "border-black"
     );
     const column = document.createElement("div");
     column.classList.add("col-lg-3", "col-md-4", "col-sm-6");
@@ -146,7 +146,7 @@ export function addMovieGridElements() {
     card.appendChild(description);
   });
   const pagination = document.createElement("div");
-  pagination.classList.add("container", "d-flex", "justify-content-center");
+  pagination.classList.add("container", "d-flex", "justify-content-center","p-5","mb-5");
   pagination.innerHTML = `<nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item"><a class="page-link bg-warning" id="previous" href="javascript:void(0)">Previous</a></li>
@@ -184,7 +184,7 @@ export async function addMovieListElements() {
       "bg-warning",
       "border",
       "border-3",
-      "border-black"
+      // "border-black"
     );
     const column = document.createElement("div");
     column.classList.add("d-flex", "flex-column");
@@ -236,7 +236,7 @@ export async function addMovieListElements() {
     dataContainer.appendChild(description);
   });
   const pagination = document.createElement("div");
-  pagination.classList.add("container", "d-flex", "justify-content-center");
+  pagination.classList.add("container", "d-flex", "justify-content-center","p-5","mb-5");
   pagination.innerHTML = `<nav aria-label="Page navigation example">
     <ul class="pagination mt-5 mb-5">
     <li class="page-item"><a class="page-link bg-warning" id="previous" href="javascript:void(0)">Previous</a></li>
