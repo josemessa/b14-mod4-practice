@@ -72,7 +72,11 @@ export function addMovieDetailElements() {
   description.textContent = movieDetailData.description;
 
   const littleDetailsContainer = document.createElement("div");
-  littleDetailsContainer.classList.add("little-details", "d-flex", "justify-content-around");
+  littleDetailsContainer.classList.add(
+    "little-details",
+    "d-flex",
+    "justify-content-around"
+  );
 
   const year = document.createElement("p");
   year.classList.add("year");
@@ -86,9 +90,9 @@ export function addMovieDetailElements() {
   rating.classList.add("rating");
   rating.textContent = `Rating:  ${movieDetailData.rating}`;
 
-  const genres= document.createElement("div")
-  genres.classList.add("genres")
-  genres.textContent = (`Generos:  ${movieDetailData.generos}`)
+  const genres = document.createElement("div");
+  genres.classList.add("genres");
+  genres.textContent = `Generos:  ${movieDetailData.generos}`;
 
   // div con el cast
 
@@ -109,12 +113,17 @@ export function addMovieDetailElements() {
   }`;
 
   const cast = document.createElement("div");
-  cast.classList.add("cast", "d-flex","flex-row");
+  cast.classList.add("cast", "d-flex");
 
   // Agregar los nombres y las imágenes de los actores
   movieDetailData.cast.forEach((actor) => {
     const actorContainer = document.createElement("div");
-    actorContainer.classList.add("actor-container", "container", "card","justify-content-around");
+    actorContainer.classList.add(
+      "actor-container",
+      "container",
+      "card",
+      "justify-content-around"
+    );
 
     const actorName = document.createElement("p");
     actorName.classList.add("actor-name");
@@ -142,7 +151,7 @@ export function addMovieDetailElements() {
   textContainer.appendChild(title);
   textContainer.appendChild(description);
   textContainer.appendChild(littleDetailsContainer);
-  textContainer.appendChild(genres)
+  textContainer.appendChild(genres);
 
   littleDetailsContainer.appendChild(year);
   littleDetailsContainer.appendChild(runtime);

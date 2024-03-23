@@ -27,7 +27,6 @@ export function addListLayoutClickListener() {
 }
 
 export function addSelectChangeListener() {
-  
   const elementSelect = getElementByIdFrom(
     "movie-type-select",
     "addSelectChangeListener"
@@ -69,61 +68,60 @@ export function addSearchListener() {
       "search-input"
     ) as HTMLInputElement;
     query = searchInput.value;
-    setPage(1)    
+    setPage(1);
     showMovieSearch();
+    searchInput.value = "";
   });
 }
 
 // funcion listener barra paginacion
-export function addPaginationListeners(){
-  console.log('pagination ok')
-const previousPage = document.getElementById("previous");
-const nextPage = document.getElementById("next");
-const page1 = document.getElementById("page1");
-const page2 = document.getElementById("page2");
-const page3 = document.getElementById("page3");
+export function addPaginationListeners() {
+  console.log("pagination ok");
+  const previousPage = document.getElementById("previous");
+  const nextPage = document.getElementById("next");
+  const page1 = document.getElementById("page1");
+  const page2 = document.getElementById("page2");
+  const page3 = document.getElementById("page3");
 
-if (previousPage) {
-  previousPage.addEventListener("click", function (event) {
-    event.preventDefault();
-    setPreviousButton()
-    showCurrentMode()
-    console.log('previo')
-  });
-}
+  if (previousPage) {
+    previousPage.addEventListener("click", function (event) {
+      event.preventDefault();
+      setPreviousButton();
+      showCurrentMode();
+      console.log("previo");
+    });
+  }
 
-if (nextPage) {
-  nextPage.addEventListener("click", function (event) {
-    event.preventDefault();
-    setNextButton()
-    showCurrentMode()
-    console.log('next')
+  if (nextPage) {
+    nextPage.addEventListener("click", function (event) {
+      event.preventDefault();
+      setNextButton();
+      showCurrentMode();
+      console.log("next");
+    });
+  }
 
-  });
-}
+  if (page1) {
+    page1.addEventListener("click", function (event) {
+      event.preventDefault();
+      setPage(1);
+      showCurrentMode();
+    });
+  }
 
-if (page1) {
-  page1.addEventListener("click", function (event) {
-    event.preventDefault();
-    setPage(1)
-    showCurrentMode()
-  });
-}
+  if (page2) {
+    page2.addEventListener("click", function (event) {
+      event.preventDefault();
+      setPage(2);
+      showCurrentMode();
+    });
+  }
 
-if (page2) {
-  page2.addEventListener("click", function (event) {
-    event.preventDefault();
-    setPage(2)
-    showCurrentMode()
-  });
-}
-
-if (page3) {
-  page3.addEventListener("click", function (event) {
-    event.preventDefault();
-    setPage(3)
-    showCurrentMode()
-  });
-}
-
+  if (page3) {
+    page3.addEventListener("click", function (event) {
+      event.preventDefault();
+      setPage(3);
+      showCurrentMode();
+    });
+  }
 }

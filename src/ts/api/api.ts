@@ -66,7 +66,7 @@ export function getMovieDetailUrl(movieID: number) {
 }
 
 // funcion que monta la url para el SEARCH
-function getMovieSearchUrl(query: string, page){
+function getMovieSearchUrl(query: string, page) {
   let movieListUrl = apiConfig.baseUrl;
   movieListUrl += "search/movie";
   movieListUrl += `?query=${query}`;

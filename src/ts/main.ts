@@ -8,4 +8,3 @@ import { addToolbar } from "./movie/toolbars";
 // typescript
 addToolbar();
 showCurrentMode();
-

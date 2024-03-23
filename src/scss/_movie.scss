@@ -1,26 +1,11 @@
 @use "bootstrap";
-$light-theme: (
-  "main-color": none,
-    "background-image": none,
-  );
-  
-$dark-theme: (
-    "main-color": rgb(255, 230, 0),
-    "background-image": url(background.webp),
-    );
-    
-$theme: $light-theme; 
 body {
-  // font-family: 'Narrow';
-  // background-color: rgb(57, 57, 57);
   background-image: url(background.webp);
-  
 }
 .title {
   text-transform: uppercase;
-  
 }
-.page-link{
+.page-link {
   border-color: black;
   color: black;
 }
@@ -58,7 +43,7 @@ body {
   .cast {
     display: flex;
     justify-content: space-between;
-    
+
     font-weight: 700;
     .actor-container {
       display: flex;
@@ -102,6 +87,15 @@ body {
   font-weight: 700;
   font-size: 1.5rem;
 }
+.not-found {
+  margin-top: 100px;
+  padding: 40px;
+  font-size: 45px;
+  background-color: rgb(255, 208, 0);
+  color: black;
+  border-color: white;
+  border: 3px solid white;
+}
 
 .genres {
   font-size: 1.5rem;
@@ -110,6 +104,12 @@ body {
   .movie-container {
     flex-direction: column;
     align-items: center;
+  }
+  .cast-data {
+    flex-direction: column;
+    .cast {
+      flex-direction: column;
+    }
   }
   .data-container {
     flex-direction: column;

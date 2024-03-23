@@ -26,8 +26,6 @@ let movieListData: MovieList[] = [];
 let currentMode = PageMode.GridList;
 
 export function showCurrentMode() {
-
-
   if (currentMode === PageMode.GridList) {
     showMovieList();
   } else if (currentMode === PageMode.Search) {
@@ -39,7 +37,6 @@ export async function showMovieList() {
   // Clean app element
   const appElement = getElementByIdFrom("app", "addMovieListElements");
   appElement.innerHTML = "";
-  
 
   // toolbar
   addGridLayoutClickListener();
@@ -75,6 +72,18 @@ export async function showMovieSearch() {
   const moviesData = await getMovieSearchData(query, page);
   movieListData = filterMoviesData(moviesData);
   console.log(movieListData);
+  if (movieListData.length === 0) {
+    const appElement = getElementByIdFrom("app", "addMovieListElements");
+    appElement.innerHTML = "";
+
+    const notFound = document.createElement("p");
+    notFound.classList.add("not-found", "container");
+    notFound.textContent =
+      "Oooops! no se encontraron resultados... Intentalo de nuevo.";
+
+    appElement.appendChild(notFound);
+    return;
+  }
 
   if (currentMovieListLayout === MovieListLayout.Grid) {
     addMovieGridElements();
@@ -106,7 +115,7 @@ export function addMovieGridElements() {
       "bg-warning",
       "border",
       "border",
-      "border-4",
+      "border-4"
       // "border-black"
     );
     const column = document.createElement("div");
@@ -124,15 +133,15 @@ export function addMovieGridElements() {
     title.textContent = movie.title;
 
     const description = document.createElement("p");
-    description.classList.add("description", "m-2");
+    description.classList.add("description", "m-2", "fst-italic");
     description.textContent = movie.description;
 
     const year = document.createElement("p");
-    year.classList.add("year", "m-2");
+    year.classList.add("year", "m-2", "fw-bolder");
     year.textContent = `Year:  ${movie.year}`;
 
     const rating = document.createElement("p");
-    rating.classList.add("rating", "m-2");
+    rating.classList.add("rating", "m-2", "fw-bolder");
     rating.textContent = `Rating:  ${movie.rating}`;
     // estructuracion de carpetas
     column.appendChild(card);
@@ -145,7 +154,13 @@ export function addMovieGridElements() {
     card.appendChild(description);
   });
   const pagination = document.createElement("div");
-  pagination.classList.add("container", "d-flex", "justify-content-center","p-5","mb-5");
+  pagination.classList.add(
+    "container",
+    "d-flex",
+    "justify-content-center",
+    "p-5",
+    "mb-5"
+  );
   pagination.innerHTML = `<nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item"><a class="page-link bg-warning" id="previous" href="javascript:void(0)">Previous</a></li>
@@ -182,7 +197,7 @@ export async function addMovieListElements() {
       "d-flex",
       "bg-warning",
       "border",
-      "border-3",
+      "border-3"
       // "border-black"
     );
     const column = document.createElement("div");
@@ -211,15 +226,15 @@ export async function addMovieListElements() {
     title.textContent = movie.title;
 
     const description = document.createElement("p");
-    description.classList.add("description", "ms-4");
+    description.classList.add("description", "ms-4", "fst-italic");
     description.textContent = movie.description;
 
     const year = document.createElement("p");
-    year.classList.add("year", "ms-4");
+    year.classList.add("year", "ms-4", "fw-bolder");
     year.textContent = `Year:  ${movie.year}`;
 
     const rating = document.createElement("p");
-    rating.classList.add("rating", "ms-4");
+    rating.classList.add("rating", "ms-4", "fw-bolder");
     rating.textContent = `Rating:  ${movie.rating}`;
 
     // estructuracion de carpetas
@@ -235,7 +250,13 @@ export async function addMovieListElements() {
     dataContainer.appendChild(description);
   });
   const pagination = document.createElement("div");
-  pagination.classList.add("container", "d-flex", "justify-content-center","p-5","mb-5");
+  pagination.classList.add(
+    "container",
+    "d-flex",
+    "justify-content-center",
+    "p-5",
+    "mb-5"
+  );
   pagination.innerHTML = `<nav aria-label="Page navigation example">
     <ul class="pagination mt-5 mb-5">
     <li class="page-item"><a class="page-link bg-warning" id="previous" href="javascript:void(0)">Previous</a></li>

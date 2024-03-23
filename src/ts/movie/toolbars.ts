@@ -1,5 +1,5 @@
 import { addBackButtonListener, addSearchListener } from "../events/events";
-addSearchListener()
+addSearchListener();
 export function addToolbar() {
   const appElement: any = document.getElementById("toolbar");
   const elementContent = document.createElement("div");
