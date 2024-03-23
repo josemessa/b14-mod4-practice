@@ -17,7 +17,7 @@ body {
 
 .data-container {
   margin-left: 30px;
-  margin-block: 80px;
+  margin-block: 20px;
 }
 .description {
   display: -webkit-box;
@@ -67,7 +67,7 @@ body {
   padding: 20px;
 
   .title {
-    font-size: 50px;
+    font-size: 40px;
   }
 }
 .full-container {
@@ -76,17 +76,17 @@ body {
 
 .detail-description {
   font-style: italic;
-  font-size: 1.5rem;
+  font-weight: 700;
   color: black;
 }
 #movie-cover {
   height: 500px;
-  margin-block: 80px;
+  margin-block: 40px;
  
 }
 .little-details {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .not-found {
   margin-top: 100px;
