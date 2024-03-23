@@ -1,23 +1,42 @@
 @use "bootstrap";
+$cardColor:rgb(255, 208, 0);
+$backImage: url(background.webp); 
+
+
 body {
-  background-image: url(background.webp);
+  background-image: $backImage;
 }
 .title {
   text-transform: uppercase;
 }
+
 .page-link {
+  background-color: $cardColor;
   border-color: black;
   color: black;
+}
+#grid-display{
+  background-color: $cardColor;
+}
+#list-display{
+  background-color: $cardColor;
 }
 .row {
   .cover-container img {
     width: 200px;
   }
 }
-
+.card{
+  background-color: $cardColor;
+}
+.data-movie{
+  background-color: $cardColor;
+}
 .data-container {
   margin-left: 30px;
   margin-block: 20px;
+ 
+
 }
 .description {
   display: -webkit-box;
@@ -92,7 +111,7 @@ body {
   margin-top: 100px;
   padding: 40px;
   font-size: 45px;
-  background-color: rgb(255, 208, 0);
+  background-color: $cardColor;
   color: black;
   border-color: white;
   border: 3px solid white;

@@ -113,7 +113,6 @@ export function addMovieGridElements() {
     card.classList.add(
       "card",
       "mb-4",
-      "bg-warning",
       "border",
       "border",
       "border-4"
@@ -163,11 +162,11 @@ export function addMovieGridElements() {
   );
   pagination.innerHTML = `<nav aria-label="Page navigation example">
     <ul class="pagination">
-      <li class="page-item"><a class="page-link bg-warning" id="previous" href="javascript:void(0)">Previous</a></li>
-      <li class="page-item"><a class="page-link bg-warning" id="page1" href="javascript:void(0)">1</a></li>
-      <li class="page-item"><a class="page-link bg-warning" id="page2" href="javascript:void(0)">2</a></li>
-      <li class="page-item"><a class="page-link bg-warning" id="page3" href="javascript:void(0)">3</a></li>
-      <li class="page-item"><a class="page-link bg-warning" id="next" href="javascript:void(0)">Next</a></li>
+      <li class="page-item"><a class="page-link " id="previous" href="javascript:void(0)">Previous</a></li>
+      <li class="page-item"><a class="page-link " id="page1" href="javascript:void(0)">1</a></li>
+      <li class="page-item"><a class="page-link " id="page2" href="javascript:void(0)">2</a></li>
+      <li class="page-item"><a class="page-link " id="page3" href="javascript:void(0)">3</a></li>
+      <li class="page-item"><a class="page-link " id="next" href="javascript:void(0)">Next</a></li>
     </ul>
   </nav>`;
 
@@ -191,7 +190,7 @@ export async function addMovieListElements() {
 
   movieListData.forEach((movie) => {
     const card = document.createElement("div");
-    card.classList.add("d-flex", "bg-warning", "border", "border-3");
+    card.classList.add("d-flex", "border", "border-3", "data-movie");
     const column = document.createElement("div");
     column.classList.add("d-flex", "flex-column");
 
@@ -207,7 +206,7 @@ export async function addMovieListElements() {
 
     const dataContainer = document.createElement("div");
     dataContainer.classList.add(
-      "datacContainer",
+      "data-container",
       "d-flex",
       "flex-column",
       "justify-content-center"
@@ -251,11 +250,11 @@ export async function addMovieListElements() {
   );
   pagination.innerHTML = `<nav aria-label="Page navigation example">
     <ul class="pagination mt-5 mb-5">
-    <li class="page-item"><a class="page-link bg-warning" id="previous" href="javascript:void(0)">Previous</a></li>
-      <li class="page-item"><a class="page-link bg-warning" id="page1" href="javascript:void(0)">1</a></li>
-      <li class="page-item"><a class="page-link bg-warning" id="page2" href="javascript:void(0)">2</a></li>
-      <li class="page-item"><a class="page-link bg-warning" id="page3" href="javascript:void(0)">3</a></li>
-      <li class="page-item"><a class="page-link bg-warning" id="next" href="javascript:void(0)">Next</a></li>
+    <li class="page-item"><a class="page-link " id="previous" href="javascript:void(0)">Previous</a></li>
+      <li class="page-item"><a class="page-link " id="page1" href="javascript:void(0)">1</a></li>
+      <li class="page-item"><a class="page-link " id="page2" href="javascript:void(0)">2</a></li>
+      <li class="page-item"><a class="page-link " id="page3" href="javascript:void(0)">3</a></li>
+      <li class="page-item"><a class="page-link " id="next" href="javascript:void(0)">Next</a></li>
     </ul>
   </nav>`;
 
