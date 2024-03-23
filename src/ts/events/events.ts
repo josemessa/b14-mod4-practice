@@ -8,17 +8,19 @@ import {
 } from "../movie/movie-list";
 import { showDetail } from "../movie/movie-detail";
 import { addToolbar } from "../movie/toolbars";
-import { page, setNextButton, setPage, setPreviousButton } from "../api/api";
+import { setNextButton, setPage, setPreviousButton } from "../api/api";
 
 export const movieID = "";
-// control de eventos
+
+//LISTENER icono grid
+
 export function addGridLayoutClickListener() {
   const elementGrid = document.getElementById("grid-display");
   elementGrid?.addEventListener("click", function () {
     setCurrentMovieListLayout(MovieListLayout.Grid);
   });
 }
-
+//LISTENER icono lista
 export function addListLayoutClickListener() {
   const elementList = document.getElementById("list-display");
   elementList?.addEventListener("click", function () {
@@ -26,6 +28,7 @@ export function addListLayoutClickListener() {
   });
 }
 
+//LISTENER selector tipo lista
 export function addSelectChangeListener() {
   const elementSelect = getElementByIdFrom(
     "movie-type-select",
@@ -37,7 +40,7 @@ export function addSelectChangeListener() {
     setCurrentMovieListType(optionSelected);
   });
 }
-
+//LISTENER portada pelicula => pagina detalle
 export function addCoverEventListener() {
   const container = getElementByIdFrom("container", "addCoverEventListener");
   container.addEventListener("click", (event) => {
@@ -49,7 +52,7 @@ export function addCoverEventListener() {
     }
   });
 }
-
+//LISTENER boton volver atras
 export function addBackButtonListener() {
   const button = getElementByIdFrom("back-button", "addBackButtonListener");
   button.addEventListener("click", (event) => {
@@ -58,6 +61,7 @@ export function addBackButtonListener() {
   });
 }
 
+//LISTENER boton search
 export let query: string = "";
 
 export function addSearchListener() {
@@ -74,7 +78,7 @@ export function addSearchListener() {
   });
 }
 
-// funcion listener barra paginacion
+//LISTENER pagination
 export function addPaginationListeners() {
   console.log("pagination ok");
   const previousPage = document.getElementById("previous");

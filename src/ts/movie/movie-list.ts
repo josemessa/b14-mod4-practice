@@ -17,7 +17,7 @@ import {
 import { filterMoviesData } from "../mappers/mappers";
 import { MovieListLayout, MovieListType, PageMode } from "../models";
 import { MovieList } from "../models/movie-list.interface";
-import { getElementByIdFrom, showContent } from "../utils/utils";
+import { getElementByIdFrom } from "../utils/utils";
 import { addToolbar } from "./toolbars";
 
 let currentMovieListType = MovieListType.NowPlaying;
@@ -25,6 +25,7 @@ let currentMovieListLayout = MovieListLayout.Grid;
 let movieListData: MovieList[] = [];
 let currentMode = PageMode.GridList;
 
+// Funcion que define el modo actual de la pagina
 export function showCurrentMode() {
   if (currentMode === PageMode.GridList) {
     showMovieList();
@@ -32,9 +33,10 @@ export function showCurrentMode() {
     showMovieSearch();
   }
 }
+// Funcion que monta el modo LISTA/GRID (currentMode)
 export async function showMovieList() {
   currentMode = PageMode.GridList;
-  // Clean app element
+
   const appElement = getElementByIdFrom("app", "addMovieListElements");
   appElement.innerHTML = "";
 
@@ -53,12 +55,12 @@ export async function showMovieList() {
     addMovieListElements();
   }
 }
-
+// Funcion que monta el modo SEARCH
 export async function showMovieSearch() {
   const toolbar = getElementByIdFrom("toolbar", "showMovieSearch");
   toolbar.innerHTML = "";
   currentMode = PageMode.Search;
-  // Clean app element
+
   const appElement = getElementByIdFrom("app", "addMovieListElements");
   appElement.innerHTML = "";
 
@@ -91,12 +93,11 @@ export async function showMovieSearch() {
     addMovieListElements();
   }
 }
-
+// Insercion en el DOM del modo GRID
 export function addMovieGridElements() {
   const appElement = getElementByIdFrom("app", "addMovieListElements");
   appElement.innerHTML = "";
-  // ForEach con los movie data
-  // crear un element y añadirlo a appElement
+
   const container = document.createElement("div");
   container.setAttribute("id", "container");
   container.classList.add("container");
@@ -116,7 +117,6 @@ export function addMovieGridElements() {
       "border",
       "border",
       "border-4"
-      // "border-black"
     );
     const column = document.createElement("div");
     column.classList.add("col-lg-3", "col-md-4", "col-sm-6");
@@ -175,12 +175,10 @@ export function addMovieGridElements() {
   addCoverEventListener();
   addPaginationListeners();
 }
-
+// Insercion en el DOM del modo LIST
 export async function addMovieListElements() {
   const appElement = getElementByIdFrom("app", "addMovieListElements");
 
-  // ForEach con los movie data
-  // crear un element y añadirlo a appElement
   const container = document.createElement("div");
   container.setAttribute("id", "container");
   container.classList.add("container");
@@ -193,13 +191,7 @@ export async function addMovieListElements() {
 
   movieListData.forEach((movie) => {
     const card = document.createElement("div");
-    card.classList.add(
-      "d-flex",
-      "bg-warning",
-      "border",
-      "border-3"
-      // "border-black"
-    );
+    card.classList.add("d-flex", "bg-warning", "border", "border-3");
     const column = document.createElement("div");
     column.classList.add("d-flex", "flex-column");
 
@@ -272,12 +264,13 @@ export async function addMovieListElements() {
   addPaginationListeners();
 }
 
+// Funcion que guarda los valores del tipo de LISTA
 export function setCurrentMovieListType(movieListType: MovieListType) {
   currentMovieListType = movieListType;
   setPage(1);
   showMovieList();
 }
-
+// Funcion que guarda los valores del tipo de VISTA
 export function setCurrentMovieListLayout(movieListLayout: MovieListLayout) {
   if (currentMovieListLayout !== movieListLayout) {
     currentMovieListLayout = movieListLayout;

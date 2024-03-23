@@ -1,8 +1,7 @@
-// funciones que trasnsforman los datos
-
 import { MovieDetails } from "../models/movie-detail.interface";
 import { MovieList } from "../models/movie-list.interface";
 
+//  MAPPER de data peliculas para las LISTAS
 export function filterMoviesData(movies): MovieList[] {
   return movies.map((movie) => {
     const { id, title, overview, poster_path, release_date, vote_average } =
@@ -10,13 +9,15 @@ export function filterMoviesData(movies): MovieList[] {
     return {
       id,
       cover: poster_path,
-      title, 
+      title,
       rating: vote_average.toFixed(1),
       year: release_date.split("-").shift(),
       description: overview,
     };
   });
 }
+
+//  MAPPER de data peliculas para DETALLE
 
 export function filterDetailsData(movie): MovieDetails {
   const {
@@ -30,7 +31,6 @@ export function filterDetailsData(movie): MovieDetails {
     credits,
     runtime,
     genres,
-    
   } = movie;
 
   const director = credits.crew.find(
@@ -57,7 +57,6 @@ export function filterDetailsData(movie): MovieDetails {
     directorPhoto: directorPic,
     cast,
     duracion: runtime,
-    generos: genres.map((genre) => genre.name).join(', '),
+    generos: genres.map((genre) => genre.name).join(", "),
   };
 }
-

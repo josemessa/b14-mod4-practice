@@ -1,5 +1,7 @@
 import { addBackButtonListener, addSearchListener } from "../events/events";
 addSearchListener();
+
+// Funcion que inserta TOOLBAR en el dom
 export function addToolbar() {
   const appElement: any = document.getElementById("toolbar");
   const elementContent = document.createElement("div");
@@ -22,7 +24,7 @@ export function addToolbar() {
 
   appElement.appendChild(elementContent);
 }
-
+// Funcion que inserta BACK-TOOLBAR en el dom
 export function addBackToolbar() {
   const toolbarElement: any = document.getElementById("toolbar");
   toolbarElement.innerHTML = "";

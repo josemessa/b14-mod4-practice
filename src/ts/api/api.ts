@@ -1,26 +1,20 @@
-import { movieID } from "../events/events";
 import { MovieListType } from "../models";
 import { apiConfig } from "./api-config";
-import { query } from "../events/events";
-// funcion para traer peliculas por busquda
-export async function searchMovie(query: string) {
-  const movieSearchUrl = getMovieSearchUrl(query, page);
-  return fetchMovieListData(movieSearchUrl, "searchMovie");
-}
+
 export let page: number = 1;
 
-// funcion para hacer trert peliculas por tipo
+//LLamada a la API por tipo de lista
 export async function getMovieListData(movieListType: MovieListType) {
   const movieListUrl = getMovieListUrl(movieListType, page);
   return fetchMovieListData(movieListUrl, "getMovieListData");
 }
-// funcion para hacer trert peliculas por search
+//LLamada a la API por search
 export async function getMovieSearchData(query, page) {
   const movieSearchUrl = getMovieSearchUrl(query, page);
   return fetchMovieListData(movieSearchUrl, "getMovieListData");
 }
 
-// funcion para hacer el fetch de las url y traer datos
+// Funcion fetch y obtencion de data de las listas
 export async function fetchMovieListData(url, functionName) {
   const response = await fetch(url);
   const data = await response.json();
@@ -32,7 +26,7 @@ export async function fetchMovieListData(url, functionName) {
   return data?.results ?? [];
 }
 
-// funcion para hacer el fetch de los detalles
+// Funcion fetch y obtencion de data de los detalles
 export async function fetchMovieDetailsData(url, functionName) {
   const response = await fetch(url);
   const data = await response.json();
@@ -43,7 +37,7 @@ export async function fetchMovieDetailsData(url, functionName) {
 
   return data;
 }
-// funcion que monta la url para traer el TIPO DE LISTA
+// URL lista
 function getMovieListUrl(movieListType: MovieListType, page): string {
   let movieListUrl = apiConfig.baseUrl;
   movieListUrl += `/movie/${movieListType}`;
@@ -53,7 +47,7 @@ function getMovieListUrl(movieListType: MovieListType, page): string {
 
   return movieListUrl;
 }
-// funcion que monta la url para traer datos de la pagina de DETALLE
+// URL detalle
 export function getMovieDetailUrl(movieID: number) {
   let movieDetailUrl = apiConfig.baseUrl;
   movieDetailUrl += `/movie/${movieID}`;
@@ -65,7 +59,7 @@ export function getMovieDetailUrl(movieID: number) {
   return movieDetailUrl;
 }
 
-// funcion que monta la url para el SEARCH
+// URL search
 function getMovieSearchUrl(query: string, page) {
   let movieListUrl = apiConfig.baseUrl;
   movieListUrl += "search/movie";
@@ -77,6 +71,8 @@ function getMovieSearchUrl(query: string, page) {
 
   return movieListUrl;
 }
+
+// Funciones establecer paginas (paginador)
 
 export function setPage(number: number) {
   page = number;

@@ -1,39 +1,31 @@
-import {
-  fetchMovieDetailsData,
-  fetchMovieListData,
-  getMovieDetailUrl,
-} from "../api/api";
+import { fetchMovieDetailsData, getMovieDetailUrl } from "../api/api";
 import { apiConfig } from "../api/api-config";
-import { movieID } from "../events/events";
+
 import { filterDetailsData, filterMoviesData } from "../mappers/mappers";
-import { MovieDetails } from "../models/movie-detail.interface";
 import { getElementByIdFrom } from "../utils/utils";
 import { addBackToolbar } from "./toolbars";
 
 let movieDetailData;
 
-// funcion para traer detalles de peliculas / ok
+//LLamada API y fecth con resultado DATA
 
 export async function getMovieDetailsData(movieID) {
   const movieDetailsUrl = getMovieDetailUrl(movieID);
   let data = fetchMovieDetailsData(movieDetailsUrl, "getMovieDetailsData");
   return data;
 }
-
+// Insercion bloque en el DOM
 export async function showDetail(movieID) {
-  // Clean app element/ ok
   const appElement = getElementByIdFrom("app", "addMovieListElements");
   appElement.innerHTML = "";
 
   addBackToolbar();
 
-  // data  /ok
   const movieDetail = await getMovieDetailsData(movieID);
-  console.log(movieDetail);
   movieDetailData = filterDetailsData(movieDetail);
   addMovieDetailElements();
 }
-
+// Montaje bloque que sera insertado en el DOM
 export function addMovieDetailElements() {
   const appElement = getElementByIdFrom("app", "addMovieListElements");
   appElement.classList.remove("container");
@@ -48,7 +40,6 @@ export function addMovieDetailElements() {
   const movieContainer = document.createElement("div");
   movieContainer.classList.add("movie-container", "container", "d-flex");
 
-  // detail elements
   const imgContainer = document.createElement("div");
   imgContainer.classList.add("img-container");
 
@@ -59,7 +50,7 @@ export function addMovieDetailElements() {
 
   const dataContainer = document.createElement("div");
   dataContainer.classList.add("data-container");
-  // div con los textos
+
   const textContainer = document.createElement("div");
   textContainer.classList.add("text-container");
 
@@ -94,8 +85,6 @@ export function addMovieDetailElements() {
   genres.classList.add("genres");
   genres.textContent = `Generos:  ${movieDetailData.generos}`;
 
-  // div con el cast
-
   const castDataContainer = document.createElement("div");
   castDataContainer.classList.add("cast-data", "d-flex");
 
@@ -115,7 +104,7 @@ export function addMovieDetailElements() {
   const cast = document.createElement("div");
   cast.classList.add("cast", "d-flex");
 
-  // Agregar los nombres y las imágenes de los actores
+  // Bucle que genera una CARD por cada Actor
   movieDetailData.cast.forEach((actor) => {
     const actorContainer = document.createElement("div");
     actorContainer.classList.add(
