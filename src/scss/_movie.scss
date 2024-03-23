@@ -82,6 +82,7 @@ body {
 #movie-cover {
   height: 500px;
   margin-block: 80px;
+ 
 }
 .little-details {
   font-weight: 700;
@@ -96,7 +97,9 @@ body {
   border-color: white;
   border: 3px solid white;
 }
-
+.cover{
+  cursor: pointer;
+}
 .genres {
   font-size: 1.5rem;
 }
