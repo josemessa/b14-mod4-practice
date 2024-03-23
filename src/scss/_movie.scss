@@ -21,6 +21,9 @@ body {
 #list-display{
   background-color: $cardColor;
 }
+#back-button{
+   background-color: $cardColor;
+}
 .row {
   .cover-container img {
     width: 200px;
@@ -47,7 +50,7 @@ body {
 .cast-data {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
-
+margin-bottom: 80px;
   padding: 20px;
   margin-top: 20px;
   .director {
